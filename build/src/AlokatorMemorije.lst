@@ -1,0 +1,1032 @@
+GAS LISTING /tmp/ccRAQxyY.s 			page 1
+
+
+   1              		.file	"AlokatorMemorije.cpp"
+   2              		.option pic
+   3              		.option norelax
+   4              		.text
+   5              	.Ltext0:
+   6              		.align	2
+   7              		.globl	_ZN16AlokatorMemorije15dohvatiInstancuEv
+   9              	_ZN16AlokatorMemorije15dohvatiInstancuEv:
+  10              	.LFB0:
+  11              		.file 1 "src/AlokatorMemorije.cpp"
+   1:src/AlokatorMemorije.cpp **** #include "../h/AlokatorMemorije.h"
+   2:src/AlokatorMemorije.cpp **** #include "../lib/console.h"
+   3:src/AlokatorMemorije.cpp **** 
+   4:src/AlokatorMemorije.cpp **** AlokatorMemorije* AlokatorMemorije::memorija = nullptr;
+   5:src/AlokatorMemorije.cpp **** 
+   6:src/AlokatorMemorije.cpp **** AlokatorMemorije* AlokatorMemorije::dohvatiInstancu() {
+  12              		.loc 1 6 55
+  13              		.cfi_startproc
+  14 0000 130101FF 		addi	sp,sp,-16
+  15              		.cfi_def_cfa_offset 16
+  16 0004 23348100 		sd	s0,8(sp)
+  17              		.cfi_offset 8, -8
+  18 0008 13040101 		addi	s0,sp,16
+  19              		.cfi_def_cfa 8, 0
+   7:src/AlokatorMemorije.cpp ****     if(memorija == nullptr){
+  20              		.loc 1 7 5
+  21              		.loc 1 7 17 is_stmt 0
+  22 000c 97070000 		ld	a5,.LANCHOR0
+  22      83B70700 
+  23              		.loc 1 7 5
+  24 0014 638C0700 		beqz	a5,.L4
+  25              	.L2:
+   8:src/AlokatorMemorije.cpp ****         memorija = (AlokatorMemorije*) HEAP_START_ADDR;
+   9:src/AlokatorMemorije.cpp ****         memorija->glava = (SlobodnaMemorija*) ((char*)HEAP_START_ADDR + sizeof(AlokatorMemorije*));
+  10:src/AlokatorMemorije.cpp ****         memorija->glava->sl = nullptr;
+  11:src/AlokatorMemorije.cpp ****         memorija->glava->pret = nullptr;
+  12:src/AlokatorMemorije.cpp ****         memorija->glava->vel = ((char*)HEAP_END_ADDR - (char*)memorija->glava) / MEM_BLOCK_SIZE;
+  13:src/AlokatorMemorije.cpp ****     }
+  14:src/AlokatorMemorije.cpp ****     return memorija;
+  26              		.loc 1 14 5 is_stmt 1
+  15:src/AlokatorMemorije.cpp **** }
+  27              		.loc 1 15 1 is_stmt 0
+  28 0018 17050000 		ld	a0,.LANCHOR0
+  28      03350500 
+  29 0020 03348100 		ld	s0,8(sp)
+  30              		.cfi_remember_state
+  31              		.cfi_restore 8
+  32              		.cfi_def_cfa 2, 16
+  33 0024 13010101 		addi	sp,sp,16
+  34              		.cfi_def_cfa_offset 0
+  35 0028 67800000 		jr	ra
+  36              	.L4:
+  37              		.cfi_restore_state
+   8:src/AlokatorMemorije.cpp ****         memorija = (AlokatorMemorije*) HEAP_START_ADDR;
+  38              		.loc 1 8 9 is_stmt 1
+   8:src/AlokatorMemorije.cpp ****         memorija = (AlokatorMemorije*) HEAP_START_ADDR;
+  39              		.loc 1 8 18 is_stmt 0
+GAS LISTING /tmp/ccRAQxyY.s 			page 2
+
+
+  40 002c 97070000 		la	a5,HEAP_START_ADDR
+  40      83B70700 
+  41 0034 83B70700 		ld	a5,0(a5)
+  42 0038 17070000 		lla	a4,.LANCHOR0
+  42      13070700 
+  43 0040 2330F700 		sd	a5,0(a4)
+   9:src/AlokatorMemorije.cpp ****         memorija->glava->sl = nullptr;
+  44              		.loc 1 9 9 is_stmt 1
+   9:src/AlokatorMemorije.cpp ****         memorija->glava->sl = nullptr;
+  45              		.loc 1 9 27 is_stmt 0
+  46 0044 93868700 		addi	a3,a5,8
+   9:src/AlokatorMemorije.cpp ****         memorija->glava->sl = nullptr;
+  47              		.loc 1 9 25
+  48 0048 23B0D700 		sd	a3,0(a5)
+  10:src/AlokatorMemorije.cpp ****         memorija->glava->pret = nullptr;
+  49              		.loc 1 10 9 is_stmt 1
+  10:src/AlokatorMemorije.cpp ****         memorija->glava->pret = nullptr;
+  50              		.loc 1 10 19 is_stmt 0
+  51 004c 83370700 		ld	a5,0(a4)
+  52 0050 83B60700 		ld	a3,0(a5)
+  10:src/AlokatorMemorije.cpp ****         memorija->glava->pret = nullptr;
+  53              		.loc 1 10 29
+  54 0054 23B40600 		sd	zero,8(a3)
+  11:src/AlokatorMemorije.cpp ****         memorija->glava->vel = ((char*)HEAP_END_ADDR - (char*)memorija->glava) / MEM_BLOCK_SIZE;
+  55              		.loc 1 11 9 is_stmt 1
+  11:src/AlokatorMemorije.cpp ****         memorija->glava->vel = ((char*)HEAP_END_ADDR - (char*)memorija->glava) / MEM_BLOCK_SIZE;
+  56              		.loc 1 11 19 is_stmt 0
+  57 0058 83B70700 		ld	a5,0(a5)
+  11:src/AlokatorMemorije.cpp ****         memorija->glava->vel = ((char*)HEAP_END_ADDR - (char*)memorija->glava) / MEM_BLOCK_SIZE;
+  58              		.loc 1 11 31
+  59 005c 23B00700 		sd	zero,0(a5)
+  12:src/AlokatorMemorije.cpp ****     }
+  60              		.loc 1 12 9 is_stmt 1
+  12:src/AlokatorMemorije.cpp ****     }
+  61              		.loc 1 12 33 is_stmt 0
+  62 0060 97070000 		la	a5,HEAP_END_ADDR
+  62      83B70700 
+  63 0068 83B70700 		ld	a5,0(a5)
+  12:src/AlokatorMemorije.cpp ****     }
+  64              		.loc 1 12 56
+  65 006c 03370700 		ld	a4,0(a4)
+  12:src/AlokatorMemorije.cpp ****     }
+  66              		.loc 1 12 73
+  67 0070 03370700 		ld	a4,0(a4)
+  12:src/AlokatorMemorije.cpp ****     }
+  68              		.loc 1 12 54
+  69 0074 B387E740 		sub	a5,a5,a4
+  12:src/AlokatorMemorije.cpp ****     }
+  70              		.loc 1 12 80
+  71 0078 93D76700 		srli	a5,a5,6
+  12:src/AlokatorMemorije.cpp ****     }
+  72              		.loc 1 12 30
+  73 007c 2338F700 		sd	a5,16(a4)
+  74 0080 6FF09FF9 		j	.L2
+  75              		.cfi_endproc
+  76              	.LFE0:
+  78              		.align	2
+GAS LISTING /tmp/ccRAQxyY.s 			page 3
+
+
+  79              		.globl	_ZN16AlokatorMemorije9mem_allocEm
+  81              	_ZN16AlokatorMemorije9mem_allocEm:
+  82              	.LFB1:
+  16:src/AlokatorMemorije.cpp **** 
+  17:src/AlokatorMemorije.cpp **** void *AlokatorMemorije::mem_alloc(size_t size) {
+  83              		.loc 1 17 48 is_stmt 1
+  84              		.cfi_startproc
+  85              	.LVL0:
+  86 0084 130101FF 		addi	sp,sp,-16
+  87              		.cfi_def_cfa_offset 16
+  88 0088 23348100 		sd	s0,8(sp)
+  89              		.cfi_offset 8, -8
+  90 008c 13040101 		addi	s0,sp,16
+  91              		.cfi_def_cfa 8, 0
+  18:src/AlokatorMemorije.cpp ****     if(size <= 0) return nullptr;
+  92              		.loc 1 18 5
+  93 0090 6380050C 		beqz	a1,.L15
+  94 0094 93060500 		mv	a3,a0
+  19:src/AlokatorMemorije.cpp ****     size_t brojBlokova = size / MEM_BLOCK_SIZE + 1 + ((size % MEM_BLOCK_SIZE == 0)? 0: 1);
+  95              		.loc 1 19 5
+  96              		.loc 1 19 31 is_stmt 0
+  97 0098 13D76500 		srli	a4,a1,6
+  98              		.loc 1 19 61
+  99 009c 93F5F503 		andi	a1,a1,63
+ 100              	.LVL1:
+ 101              		.loc 1 19 83
+ 102 00a0 B335B000 		snez	a1,a1
+ 103              		.loc 1 19 52
+ 104 00a4 3307B700 		add	a4,a4,a1
+ 105              		.loc 1 19 12
+ 106 00a8 13071700 		addi	a4,a4,1
+ 107              	.LVL2:
+  20:src/AlokatorMemorije.cpp ****     SlobodnaMemorija* tren;
+ 108              		.loc 1 20 5 is_stmt 1
+  21:src/AlokatorMemorije.cpp ****     for(tren = glava; tren != nullptr; tren = tren->sl){
+ 109              		.loc 1 21 5
+ 110              	.LBB2:
+ 111              		.loc 1 21 14 is_stmt 0
+ 112 00ac 03350500 		ld	a0,0(a0)
+ 113              	.LVL3:
+ 114 00b0 6F00C006 		j	.L14
+ 115              	.L17:
+ 116              	.LBB3:
+ 117              	.LBB4:
+ 118              	.LBB5:
+  22:src/AlokatorMemorije.cpp ****         if(tren->vel > brojBlokova){
+  23:src/AlokatorMemorije.cpp ****             SlobodnaMemorija* trenNov = (SlobodnaMemorija*)((char*)tren + brojBlokova * MEM_BLOCK_S
+ 119              		.loc 1 23 13 is_stmt 1
+ 120              		.loc 1 23 87 is_stmt 0
+ 121 00b4 13166700 		slli	a2,a4,6
+ 122              		.loc 1 23 31
+ 123 00b8 3306C500 		add	a2,a0,a2
+ 124              	.LVL4:
+  24:src/AlokatorMemorije.cpp ****             trenNov->vel = tren->vel - brojBlokova;
+ 125              		.loc 1 24 13 is_stmt 1
+ 126              		.loc 1 24 38 is_stmt 0
+ 127 00bc B387E740 		sub	a5,a5,a4
+GAS LISTING /tmp/ccRAQxyY.s 			page 4
+
+
+ 128              		.loc 1 24 26
+ 129 00c0 2338F600 		sd	a5,16(a2)
+  25:src/AlokatorMemorije.cpp ****             trenNov->sl = tren->sl;
+ 130              		.loc 1 25 13 is_stmt 1
+ 131              		.loc 1 25 33 is_stmt 0
+ 132 00c4 83378500 		ld	a5,8(a0)
+ 133              		.loc 1 25 25
+ 134 00c8 2334F600 		sd	a5,8(a2)
+  26:src/AlokatorMemorije.cpp ****             trenNov->pret = tren->pret;
+ 135              		.loc 1 26 13 is_stmt 1
+ 136              		.loc 1 26 35 is_stmt 0
+ 137 00cc 83370500 		ld	a5,0(a0)
+ 138              		.loc 1 26 27
+ 139 00d0 2330F600 		sd	a5,0(a2)
+  27:src/AlokatorMemorije.cpp ****             if(tren->sl != nullptr)tren->sl->pret = trenNov;
+ 140              		.loc 1 27 13 is_stmt 1
+ 141              		.loc 1 27 22 is_stmt 0
+ 142 00d4 83378500 		ld	a5,8(a0)
+ 143              		.loc 1 27 13
+ 144 00d8 63840700 		beqz	a5,.L9
+ 145              		.loc 1 27 36 is_stmt 1 discriminator 1
+ 146              		.loc 1 27 51 is_stmt 0 discriminator 1
+ 147 00dc 23B0C700 		sd	a2,0(a5)
+ 148              	.L9:
+  28:src/AlokatorMemorije.cpp ****             if(tren->pret != nullptr)tren->pret->sl = trenNov;
+ 149              		.loc 1 28 13 is_stmt 1
+ 150              		.loc 1 28 22 is_stmt 0
+ 151 00e0 83370500 		ld	a5,0(a0)
+ 152              		.loc 1 28 13
+ 153 00e4 63800702 		beqz	a5,.L10
+ 154              		.loc 1 28 38 is_stmt 1 discriminator 1
+ 155              		.loc 1 28 53 is_stmt 0 discriminator 1
+ 156 00e8 23B4C700 		sd	a2,8(a5)
+ 157              	.LVL5:
+ 158              	.L7:
+ 159              	.LBE5:
+ 160              	.LBE4:
+ 161              	.LBE3:
+ 162              	.LBE2:
+  29:src/AlokatorMemorije.cpp ****             else glava = trenNov;
+  30:src/AlokatorMemorije.cpp ****             break;
+  31:src/AlokatorMemorije.cpp ****         }
+  32:src/AlokatorMemorije.cpp ****         if(tren->vel == brojBlokova){
+  33:src/AlokatorMemorije.cpp ****             if(tren->pret == nullptr)glava = tren->sl;
+  34:src/AlokatorMemorije.cpp ****             else tren->pret->sl = tren->sl;
+  35:src/AlokatorMemorije.cpp ****             if(tren->sl)tren->sl->pret = tren->pret;
+  36:src/AlokatorMemorije.cpp ****             break;
+  37:src/AlokatorMemorije.cpp ****         }
+  38:src/AlokatorMemorije.cpp ****     }
+  39:src/AlokatorMemorije.cpp ****     if(tren != nullptr){
+ 163              		.loc 1 39 5 is_stmt 1
+ 164 00ec 63060500 		beqz	a0,.L5
+  40:src/AlokatorMemorije.cpp ****         tren->vel = brojBlokova;
+ 165              		.loc 1 40 9
+ 166              		.loc 1 40 19 is_stmt 0
+ 167 00f0 2338E500 		sd	a4,16(a0)
+  41:src/AlokatorMemorije.cpp ****         return (void*)((char*)tren + MEM_BLOCK_SIZE);
+GAS LISTING /tmp/ccRAQxyY.s 			page 5
+
+
+ 168              		.loc 1 41 9 is_stmt 1
+ 169              		.loc 1 41 52 is_stmt 0
+ 170 00f4 13050504 		addi	a0,a0,64
+ 171              	.LVL6:
+ 172              	.L5:
+  42:src/AlokatorMemorije.cpp ****     }
+  43:src/AlokatorMemorije.cpp ****     return nullptr;
+  44:src/AlokatorMemorije.cpp **** }
+ 173              		.loc 1 44 1
+ 174 00f8 03348100 		ld	s0,8(sp)
+ 175              		.cfi_remember_state
+ 176              		.cfi_restore 8
+ 177              		.cfi_def_cfa 2, 16
+ 178 00fc 13010101 		addi	sp,sp,16
+ 179              		.cfi_def_cfa_offset 0
+ 180 0100 67800000 		jr	ra
+ 181              	.LVL7:
+ 182              	.L10:
+ 183              		.cfi_restore_state
+ 184              	.LBB11:
+ 185              	.LBB9:
+ 186              	.LBB7:
+ 187              	.LBB6:
+  29:src/AlokatorMemorije.cpp ****             break;
+ 188              		.loc 1 29 18 is_stmt 1
+  29:src/AlokatorMemorije.cpp ****             break;
+ 189              		.loc 1 29 24 is_stmt 0
+ 190 0104 23B0C600 		sd	a2,0(a3)
+ 191 0108 6FF05FFE 		j	.L7
+ 192              	.LVL8:
+ 193              	.L18:
+ 194              	.LBE6:
+ 195              	.LBE7:
+  33:src/AlokatorMemorije.cpp ****             else tren->pret->sl = tren->sl;
+ 196              		.loc 1 33 38 is_stmt 1 discriminator 1
+  33:src/AlokatorMemorije.cpp ****             else tren->pret->sl = tren->sl;
+ 197              		.loc 1 33 52 is_stmt 0 discriminator 1
+ 198 010c 83378500 		ld	a5,8(a0)
+  33:src/AlokatorMemorije.cpp ****             else tren->pret->sl = tren->sl;
+ 199              		.loc 1 33 44 discriminator 1
+ 200 0110 23B0F600 		sd	a5,0(a3)
+ 201 0114 6F008002 		j	.L13
+ 202              	.L11:
+ 203              	.LBE9:
+  21:src/AlokatorMemorije.cpp ****         if(tren->vel > brojBlokova){
+ 204              		.loc 1 21 5 is_stmt 1 discriminator 2
+  21:src/AlokatorMemorije.cpp ****         if(tren->vel > brojBlokova){
+ 205              		.loc 1 21 45 is_stmt 0 discriminator 2
+ 206 0118 03358500 		ld	a0,8(a0)
+ 207              	.LVL9:
+ 208              	.L14:
+  21:src/AlokatorMemorije.cpp ****         if(tren->vel > brojBlokova){
+ 209              		.loc 1 21 28 is_stmt 1 discriminator 1
+ 210 011c E30805FC 		beqz	a0,.L7
+ 211              	.LBB10:
+  22:src/AlokatorMemorije.cpp ****             SlobodnaMemorija* trenNov = (SlobodnaMemorija*)((char*)tren + brojBlokova * MEM_BLOCK_S
+ 212              		.loc 1 22 9
+GAS LISTING /tmp/ccRAQxyY.s 			page 6
+
+
+ 213              	.LBB8:
+  22:src/AlokatorMemorije.cpp ****             SlobodnaMemorija* trenNov = (SlobodnaMemorija*)((char*)tren + brojBlokova * MEM_BLOCK_S
+ 214              		.loc 1 22 18 is_stmt 0
+ 215 0120 83370501 		ld	a5,16(a0)
+  22:src/AlokatorMemorije.cpp ****             SlobodnaMemorija* trenNov = (SlobodnaMemorija*)((char*)tren + brojBlokova * MEM_BLOCK_S
+ 216              		.loc 1 22 9
+ 217 0124 E368F7F8 		bgtu	a5,a4,.L17
+ 218              	.LBE8:
+  32:src/AlokatorMemorije.cpp ****             if(tren->pret == nullptr)glava = tren->sl;
+ 219              		.loc 1 32 9 is_stmt 1
+ 220 0128 E398E7FE 		bne	a5,a4,.L11
+  33:src/AlokatorMemorije.cpp ****             else tren->pret->sl = tren->sl;
+ 221              		.loc 1 33 13
+  33:src/AlokatorMemorije.cpp ****             else tren->pret->sl = tren->sl;
+ 222              		.loc 1 33 22 is_stmt 0
+ 223 012c 83370500 		ld	a5,0(a0)
+  33:src/AlokatorMemorije.cpp ****             else tren->pret->sl = tren->sl;
+ 224              		.loc 1 33 13
+ 225 0130 E38E07FC 		beqz	a5,.L18
+  34:src/AlokatorMemorije.cpp ****             if(tren->sl)tren->sl->pret = tren->pret;
+ 226              		.loc 1 34 18 is_stmt 1
+  34:src/AlokatorMemorije.cpp ****             if(tren->sl)tren->sl->pret = tren->pret;
+ 227              		.loc 1 34 41 is_stmt 0
+ 228 0134 83368500 		ld	a3,8(a0)
+ 229              	.LVL10:
+  34:src/AlokatorMemorije.cpp ****             if(tren->sl)tren->sl->pret = tren->pret;
+ 230              		.loc 1 34 33
+ 231 0138 23B4D700 		sd	a3,8(a5)
+ 232              	.L13:
+  35:src/AlokatorMemorije.cpp ****             break;
+ 233              		.loc 1 35 13 is_stmt 1
+  35:src/AlokatorMemorije.cpp ****             break;
+ 234              		.loc 1 35 22 is_stmt 0
+ 235 013c 83378500 		ld	a5,8(a0)
+  35:src/AlokatorMemorije.cpp ****             break;
+ 236              		.loc 1 35 13
+ 237 0140 E38607FA 		beqz	a5,.L7
+  35:src/AlokatorMemorije.cpp ****             break;
+ 238              		.loc 1 35 25 is_stmt 1 discriminator 1
+  35:src/AlokatorMemorije.cpp ****             break;
+ 239              		.loc 1 35 48 is_stmt 0 discriminator 1
+ 240 0144 83360500 		ld	a3,0(a0)
+  35:src/AlokatorMemorije.cpp ****             break;
+ 241              		.loc 1 35 40 discriminator 1
+ 242 0148 23B0D700 		sd	a3,0(a5)
+ 243 014c 6FF01FFA 		j	.L7
+ 244              	.LVL11:
+ 245              	.L15:
+ 246              	.LBE10:
+ 247              	.LBE11:
+  18:src/AlokatorMemorije.cpp ****     size_t brojBlokova = size / MEM_BLOCK_SIZE + 1 + ((size % MEM_BLOCK_SIZE == 0)? 0: 1);
+ 248              		.loc 1 18 26
+ 249 0150 13050000 		li	a0,0
+ 250              	.LVL12:
+ 251 0154 6FF05FFA 		j	.L5
+ 252              		.cfi_endproc
+ 253              	.LFE1:
+GAS LISTING /tmp/ccRAQxyY.s 			page 7
+
+
+ 255              		.align	2
+ 256              		.globl	_ZN16AlokatorMemorije5SpojiEPNS_16SlobodnaMemorijaE
+ 258              	_ZN16AlokatorMemorije5SpojiEPNS_16SlobodnaMemorijaE:
+ 259              	.LFB3:
+  45:src/AlokatorMemorije.cpp **** 
+  46:src/AlokatorMemorije.cpp **** int AlokatorMemorije::mem_free(void *pocAdr) {
+  47:src/AlokatorMemorije.cpp ****     if((char*)pocAdr > HEAP_END_ADDR || (char*)pocAdr < HEAP_START_ADDR)return -1;
+  48:src/AlokatorMemorije.cpp ****     SlobodnaMemorija* tren, *pret = nullptr, *nov = (SlobodnaMemorija*)((char*)pocAdr - MEM_BLOCK_S
+  49:src/AlokatorMemorije.cpp ****     for(tren = glava; tren != nullptr && (char*)tren < (char*)nov; pret = tren, tren = tren->sl);
+  50:src/AlokatorMemorije.cpp ****     nov->sl = tren;
+  51:src/AlokatorMemorije.cpp ****     nov->pret = pret;
+  52:src/AlokatorMemorije.cpp ****     if(pret == nullptr) glava = nov;
+  53:src/AlokatorMemorije.cpp ****     else pret->sl = nov;
+  54:src/AlokatorMemorije.cpp ****     if(tren != nullptr)tren->pret = nov;
+  55:src/AlokatorMemorije.cpp ****     Spoji(nov);
+  56:src/AlokatorMemorije.cpp ****     Spoji(pret);
+  57:src/AlokatorMemorije.cpp ****     return 0;
+  58:src/AlokatorMemorije.cpp **** }
+  59:src/AlokatorMemorije.cpp **** 
+  60:src/AlokatorMemorije.cpp **** void AlokatorMemorije::Spoji(SlobodnaMemorija* tren) {
+ 260              		.loc 1 60 54 is_stmt 1
+ 261              		.cfi_startproc
+ 262              	.LVL13:
+ 263 0158 130101FF 		addi	sp,sp,-16
+ 264              		.cfi_def_cfa_offset 16
+ 265 015c 23348100 		sd	s0,8(sp)
+ 266              		.cfi_offset 8, -8
+ 267 0160 13040101 		addi	s0,sp,16
+ 268              		.cfi_def_cfa 8, 0
+  61:src/AlokatorMemorije.cpp ****     if(tren == nullptr || tren->sl == nullptr)return;
+ 269              		.loc 1 61 5
+ 270 0164 638E0500 		beqz	a1,.L19
+ 271              		.loc 1 61 33 is_stmt 0 discriminator 2
+ 272 0168 83B78500 		ld	a5,8(a1)
+ 273              		.loc 1 61 24 discriminator 2
+ 274 016c 638A0700 		beqz	a5,.L19
+  62:src/AlokatorMemorije.cpp ****     if((char*)tren + tren->vel * MEM_BLOCK_SIZE == (char*)tren->sl){
+ 275              		.loc 1 62 5 is_stmt 1
+ 276              		.loc 1 62 28 is_stmt 0
+ 277 0170 83B60501 		ld	a3,16(a1)
+ 278              		.loc 1 62 32
+ 279 0174 13976600 		slli	a4,a3,6
+ 280              		.loc 1 62 20
+ 281 0178 3387E500 		add	a4,a1,a4
+ 282              		.loc 1 62 5
+ 283 017c 6388E700 		beq	a5,a4,.L22
+ 284              	.L19:
+  63:src/AlokatorMemorije.cpp ****         tren->vel += tren->sl->vel;
+  64:src/AlokatorMemorije.cpp ****         tren->sl = tren->sl->sl;
+  65:src/AlokatorMemorije.cpp ****         if(tren->sl != nullptr)tren->sl->pret = tren;
+  66:src/AlokatorMemorije.cpp ****     }
+  67:src/AlokatorMemorije.cpp **** }...
+ 285              		.loc 1 67 1
+ 286 0180 03348100 		ld	s0,8(sp)
+ 287              		.cfi_remember_state
+ 288              		.cfi_restore 8
+ 289              		.cfi_def_cfa 2, 16
+GAS LISTING /tmp/ccRAQxyY.s 			page 8
+
+
+ 290 0184 13010101 		addi	sp,sp,16
+ 291              		.cfi_def_cfa_offset 0
+ 292 0188 67800000 		jr	ra
+ 293              	.L22:
+ 294              		.cfi_restore_state
+  63:src/AlokatorMemorije.cpp ****         tren->vel += tren->sl->vel;
+ 295              		.loc 1 63 9 is_stmt 1
+  63:src/AlokatorMemorije.cpp ****         tren->vel += tren->sl->vel;
+ 296              		.loc 1 63 32 is_stmt 0
+ 297 018c 03B70701 		ld	a4,16(a5)
+  63:src/AlokatorMemorije.cpp ****         tren->vel += tren->sl->vel;
+ 298              		.loc 1 63 19
+ 299 0190 B386E600 		add	a3,a3,a4
+ 300 0194 23B8D500 		sd	a3,16(a1)
+  64:src/AlokatorMemorije.cpp ****         tren->sl = tren->sl->sl;
+ 301              		.loc 1 64 9 is_stmt 1
+  64:src/AlokatorMemorije.cpp ****         tren->sl = tren->sl->sl;
+ 302              		.loc 1 64 30 is_stmt 0
+ 303 0198 83B78700 		ld	a5,8(a5)
+  64:src/AlokatorMemorije.cpp ****         tren->sl = tren->sl->sl;
+ 304              		.loc 1 64 18
+ 305 019c 23B4F500 		sd	a5,8(a1)
+  65:src/AlokatorMemorije.cpp ****         if(tren->sl != nullptr)tren->sl->pret = tren;
+ 306              		.loc 1 65 9 is_stmt 1
+ 307 01a0 E38007FE 		beqz	a5,.L19
+  65:src/AlokatorMemorije.cpp ****         if(tren->sl != nullptr)tren->sl->pret = tren;
+ 308              		.loc 1 65 32 discriminator 1
+  65:src/AlokatorMemorije.cpp ****         if(tren->sl != nullptr)tren->sl->pret = tren;
+ 309              		.loc 1 65 47 is_stmt 0 discriminator 1
+ 310 01a4 23B0B700 		sd	a1,0(a5)
+ 311 01a8 6FF09FFD 		j	.L19
+ 312              		.cfi_endproc
+ 313              	.LFE3:
+ 315              		.align	2
+ 316              		.globl	_ZN16AlokatorMemorije8mem_freeEPv
+ 318              	_ZN16AlokatorMemorije8mem_freeEPv:
+ 319              	.LFB2:
+  46:src/AlokatorMemorije.cpp **** int AlokatorMemorije::mem_free(void *pocAdr) {
+ 320              		.loc 1 46 46 is_stmt 1
+ 321              		.cfi_startproc
+ 322              	.LVL14:
+  47:src/AlokatorMemorije.cpp ****     if((char*)pocAdr > HEAP_END_ADDR || (char*)pocAdr < HEAP_START_ADDR)return -1;
+ 323              		.loc 1 47 5
+  47:src/AlokatorMemorije.cpp ****     if((char*)pocAdr > HEAP_END_ADDR || (char*)pocAdr < HEAP_START_ADDR)return -1;
+ 324              		.loc 1 47 22 is_stmt 0
+ 325 01ac 97070000 		la	a5,HEAP_END_ADDR
+ 325      83B70700 
+ 326 01b4 83B70700 		ld	a5,0(a5)
+  47:src/AlokatorMemorije.cpp ****     if((char*)pocAdr > HEAP_END_ADDR || (char*)pocAdr < HEAP_START_ADDR)return -1;
+ 327              		.loc 1 47 5
+ 328 01b8 63E6B70A 		bltu	a5,a1,.L30
+  46:src/AlokatorMemorije.cpp **** int AlokatorMemorije::mem_free(void *pocAdr) {
+ 329              		.loc 1 46 46 discriminator 2
+ 330 01bc 130101FE 		addi	sp,sp,-32
+ 331              		.cfi_def_cfa_offset 32
+ 332 01c0 233C1100 		sd	ra,24(sp)
+ 333 01c4 23388100 		sd	s0,16(sp)
+GAS LISTING /tmp/ccRAQxyY.s 			page 9
+
+
+ 334 01c8 23349100 		sd	s1,8(sp)
+ 335 01cc 23302101 		sd	s2,0(sp)
+ 336              		.cfi_offset 1, -8
+ 337              		.cfi_offset 8, -16
+ 338              		.cfi_offset 9, -24
+ 339              		.cfi_offset 18, -32
+ 340 01d0 13040102 		addi	s0,sp,32
+ 341              		.cfi_def_cfa 8, 0
+ 342 01d4 13090500 		mv	s2,a0
+ 343 01d8 13870500 		mv	a4,a1
+  47:src/AlokatorMemorije.cpp ****     if((char*)pocAdr > HEAP_END_ADDR || (char*)pocAdr < HEAP_START_ADDR)return -1;
+ 344              		.loc 1 47 55 discriminator 2
+ 345 01dc 97070000 		la	a5,HEAP_START_ADDR
+ 345      83B70700 
+ 346 01e4 83B70700 		ld	a5,0(a5)
+  47:src/AlokatorMemorije.cpp ****     if((char*)pocAdr > HEAP_END_ADDR || (char*)pocAdr < HEAP_START_ADDR)return -1;
+ 347              		.loc 1 47 38 discriminator 2
+ 348 01e8 63E2F508 		bgtu	a5,a1,.L31
+  48:src/AlokatorMemorije.cpp ****     SlobodnaMemorija* tren, *pret = nullptr, *nov = (SlobodnaMemorija*)((char*)pocAdr - MEM_BLOCK_S
+ 349              		.loc 1 48 5 is_stmt 1
+ 350              	.LVL15:
+  48:src/AlokatorMemorije.cpp ****     SlobodnaMemorija* tren, *pret = nullptr, *nov = (SlobodnaMemorija*)((char*)pocAdr - MEM_BLOCK_S
+ 351              		.loc 1 48 47 is_stmt 0
+ 352 01ec 938505FC 		addi	a1,a1,-64
+ 353              	.LVL16:
+  49:src/AlokatorMemorije.cpp ****     for(tren = glava; tren != nullptr && (char*)tren < (char*)nov; pret = tren, tren = tren->sl);
+ 354              		.loc 1 49 5 is_stmt 1
+  49:src/AlokatorMemorije.cpp ****     for(tren = glava; tren != nullptr && (char*)tren < (char*)nov; pret = tren, tren = tren->sl);
+ 355              		.loc 1 49 14 is_stmt 0
+ 356 01f0 83370500 		ld	a5,0(a0)
+ 357              	.LVL17:
+  48:src/AlokatorMemorije.cpp ****     SlobodnaMemorija* tren, *pret = nullptr, *nov = (SlobodnaMemorija*)((char*)pocAdr - MEM_BLOCK_S
+ 358              		.loc 1 48 30
+ 359 01f4 93040000 		li	s1,0
+ 360              	.LVL18:
+ 361              	.L26:
+  49:src/AlokatorMemorije.cpp ****     for(tren = glava; tren != nullptr && (char*)tren < (char*)nov; pret = tren, tren = tren->sl);
+ 362              		.loc 1 49 39 is_stmt 1 discriminator 4
+ 363 01f8 638A0700 		beqz	a5,.L25
+  49:src/AlokatorMemorije.cpp ****     for(tren = glava; tren != nullptr && (char*)tren < (char*)nov; pret = tren, tren = tren->sl);
+ 364              		.loc 1 49 39 is_stmt 0 discriminator 2
+ 365 01fc 63F8B700 		bgeu	a5,a1,.L25
+  49:src/AlokatorMemorije.cpp ****     for(tren = glava; tren != nullptr && (char*)tren < (char*)nov; pret = tren, tren = tren->sl);
+ 366              		.loc 1 49 5 is_stmt 1 discriminator 3
+ 367              	.LVL19:
+  49:src/AlokatorMemorije.cpp ****     for(tren = glava; tren != nullptr && (char*)tren < (char*)nov; pret = tren, tren = tren->sl);
+ 368              		.loc 1 49 73 is_stmt 0 discriminator 3
+ 369 0200 93840700 		mv	s1,a5
+  49:src/AlokatorMemorije.cpp ****     for(tren = glava; tren != nullptr && (char*)tren < (char*)nov; pret = tren, tren = tren->sl);
+ 370              		.loc 1 49 86 discriminator 3
+ 371 0204 83B78700 		ld	a5,8(a5)
+ 372              	.LVL20:
+  49:src/AlokatorMemorije.cpp ****     for(tren = glava; tren != nullptr && (char*)tren < (char*)nov; pret = tren, tren = tren->sl);
+ 373              		.loc 1 49 5 discriminator 3
+ 374 0208 6FF01FFF 		j	.L26
+ 375              	.L25:
+  50:src/AlokatorMemorije.cpp ****     nov->sl = tren;
+GAS LISTING /tmp/ccRAQxyY.s 			page 10
+
+
+ 376              		.loc 1 50 5 is_stmt 1
+  50:src/AlokatorMemorije.cpp ****     nov->sl = tren;
+ 377              		.loc 1 50 13 is_stmt 0
+ 378 020c 2334F7FC 		sd	a5,-56(a4)
+  51:src/AlokatorMemorije.cpp ****     nov->pret = pret;
+ 379              		.loc 1 51 5 is_stmt 1
+  51:src/AlokatorMemorije.cpp ****     nov->pret = pret;
+ 380              		.loc 1 51 15 is_stmt 0
+ 381 0210 233097FC 		sd	s1,-64(a4)
+  52:src/AlokatorMemorije.cpp ****     if(pret == nullptr) glava = nov;
+ 382              		.loc 1 52 5 is_stmt 1
+ 383 0214 63840404 		beqz	s1,.L36
+  53:src/AlokatorMemorije.cpp ****     else pret->sl = nov;
+ 384              		.loc 1 53 10
+  53:src/AlokatorMemorije.cpp ****     else pret->sl = nov;
+ 385              		.loc 1 53 19 is_stmt 0
+ 386 0218 23B4B400 		sd	a1,8(s1)
+ 387              	.L28:
+  54:src/AlokatorMemorije.cpp ****     if(tren != nullptr)tren->pret = nov;
+ 388              		.loc 1 54 5 is_stmt 1
+ 389 021c 63840700 		beqz	a5,.L29
+  54:src/AlokatorMemorije.cpp ****     if(tren != nullptr)tren->pret = nov;
+ 390              		.loc 1 54 24 discriminator 1
+  54:src/AlokatorMemorije.cpp ****     if(tren != nullptr)tren->pret = nov;
+ 391              		.loc 1 54 35 is_stmt 0 discriminator 1
+ 392 0220 23B0B700 		sd	a1,0(a5)
+ 393              	.L29:
+  55:src/AlokatorMemorije.cpp ****     Spoji(nov);
+ 394              		.loc 1 55 5 is_stmt 1
+  55:src/AlokatorMemorije.cpp ****     Spoji(nov);
+ 395              		.loc 1 55 10 is_stmt 0
+ 396 0224 13050900 		mv	a0,s2
+ 397              	.LVL21:
+ 398 0228 97000000 		call	_ZN16AlokatorMemorije5SpojiEPNS_16SlobodnaMemorijaE
+ 398      E7800000 
+ 399              	.LVL22:
+  56:src/AlokatorMemorije.cpp ****     Spoji(pret);
+ 400              		.loc 1 56 5 is_stmt 1
+  56:src/AlokatorMemorije.cpp ****     Spoji(pret);
+ 401              		.loc 1 56 10 is_stmt 0
+ 402 0230 93850400 		mv	a1,s1
+ 403 0234 13050900 		mv	a0,s2
+ 404 0238 97000000 		call	_ZN16AlokatorMemorije5SpojiEPNS_16SlobodnaMemorijaE
+ 404      E7800000 
+ 405              	.LVL23:
+  57:src/AlokatorMemorije.cpp ****     return 0;
+ 406              		.loc 1 57 5 is_stmt 1
+  57:src/AlokatorMemorije.cpp ****     return 0;
+ 407              		.loc 1 57 12 is_stmt 0
+ 408 0240 13050000 		li	a0,0
+ 409              	.LVL24:
+ 410              	.L24:
+  58:src/AlokatorMemorije.cpp **** }
+ 411              		.loc 1 58 1
+ 412 0244 83308101 		ld	ra,24(sp)
+ 413              		.cfi_remember_state
+ 414              		.cfi_restore 1
+GAS LISTING /tmp/ccRAQxyY.s 			page 11
+
+
+ 415 0248 03340101 		ld	s0,16(sp)
+ 416              		.cfi_restore 8
+ 417              		.cfi_def_cfa 2, 32
+ 418 024c 83348100 		ld	s1,8(sp)
+ 419              		.cfi_restore 9
+ 420 0250 03390100 		ld	s2,0(sp)
+ 421              		.cfi_restore 18
+ 422              	.LVL25:
+ 423 0254 13010102 		addi	sp,sp,32
+ 424              		.cfi_def_cfa_offset 0
+ 425 0258 67800000 		jr	ra
+ 426              	.LVL26:
+ 427              	.L36:
+ 428              		.cfi_restore_state
+  52:src/AlokatorMemorije.cpp ****     if(pret == nullptr) glava = nov;
+ 429              		.loc 1 52 25 is_stmt 1 discriminator 1
+  52:src/AlokatorMemorije.cpp ****     if(pret == nullptr) glava = nov;
+ 430              		.loc 1 52 31 is_stmt 0 discriminator 1
+ 431 025c 2330B900 		sd	a1,0(s2)
+ 432 0260 6FF0DFFB 		j	.L28
+ 433              	.LVL27:
+ 434              	.L30:
+ 435              		.cfi_def_cfa_register 2
+ 436              		.cfi_restore 1
+ 437              		.cfi_restore 8
+ 438              		.cfi_restore 9
+ 439              		.cfi_restore 18
+  47:src/AlokatorMemorije.cpp ****     if((char*)pocAdr > HEAP_END_ADDR || (char*)pocAdr < HEAP_START_ADDR)return -1;
+ 440              		.loc 1 47 81
+ 441 0264 1305F0FF 		li	a0,-1
+ 442              	.LVL28:
+  58:src/AlokatorMemorije.cpp **** }
+ 443              		.loc 1 58 1
+ 444 0268 67800000 		ret
+ 445              	.LVL29:
+ 446              	.L31:
+ 447              		.cfi_def_cfa_register 8
+ 448              		.cfi_offset 1, -8
+ 449              		.cfi_offset 8, -16
+ 450              		.cfi_offset 9, -24
+ 451              		.cfi_offset 18, -32
+  47:src/AlokatorMemorije.cpp ****     if((char*)pocAdr > HEAP_END_ADDR || (char*)pocAdr < HEAP_START_ADDR)return -1;
+ 452              		.loc 1 47 81
+ 453 026c 1305F0FF 		li	a0,-1
+ 454              	.LVL30:
+ 455 0270 6FF05FFD 		j	.L24
+ 456              		.cfi_endproc
+ 457              	.LFE2:
+ 459              		.globl	_ZN16AlokatorMemorije8memorijaE
+ 460              		.bss
+ 461              		.align	3
+ 462              		.set	.LANCHOR0,. + 0
+ 465              	_ZN16AlokatorMemorije8memorijaE:
+ 466 0000 00000000 		.zero	8
+ 466      00000000 
+ 467              		.text
+ 468              	.Letext0:
+GAS LISTING /tmp/ccRAQxyY.s 			page 12
+
+
+ 469              		.file 2 "src/../h/../lib/hw.h"
+ 470              		.file 3 "src/../h/AlokatorMemorije.h"
+GAS LISTING /tmp/ccRAQxyY.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 AlokatorMemorije.cpp
+     /tmp/ccRAQxyY.s:9      .text:0000000000000000 _ZN16AlokatorMemorije15dohvatiInstancuEv
+     /tmp/ccRAQxyY.s:13     .text:0000000000000000 .L0 
+     /tmp/ccRAQxyY.s:14     .text:0000000000000000 .L0 
+     /tmp/ccRAQxyY.s:15     .text:0000000000000004 .L0 
+     /tmp/ccRAQxyY.s:17     .text:0000000000000008 .L0 
+     /tmp/ccRAQxyY.s:19     .text:000000000000000c .L0 
+     /tmp/ccRAQxyY.s:21     .text:000000000000000c .L0 
+     /tmp/ccRAQxyY.s:22     .text:000000000000000c .L0 
+     /tmp/ccRAQxyY.s:24     .text:0000000000000014 .L0 
+     /tmp/ccRAQxyY.s:27     .text:0000000000000018 .L0 
+     /tmp/ccRAQxyY.s:28     .text:0000000000000018 .L0 
+     /tmp/ccRAQxyY.s:30     .text:0000000000000024 .L0 
+     /tmp/ccRAQxyY.s:31     .text:0000000000000024 .L0 
+     /tmp/ccRAQxyY.s:32     .text:0000000000000024 .L0 
+     /tmp/ccRAQxyY.s:34     .text:0000000000000028 .L0 
+     /tmp/ccRAQxyY.s:37     .text:000000000000002c .L0 
+     /tmp/ccRAQxyY.s:39     .text:000000000000002c .L0 
+     /tmp/ccRAQxyY.s:40     .text:000000000000002c .L0 
+     /tmp/ccRAQxyY.s:45     .text:0000000000000044 .L0 
+     /tmp/ccRAQxyY.s:46     .text:0000000000000044 .L0 
+     /tmp/ccRAQxyY.s:48     .text:0000000000000048 .L0 
+     /tmp/ccRAQxyY.s:50     .text:000000000000004c .L0 
+     /tmp/ccRAQxyY.s:51     .text:000000000000004c .L0 
+     /tmp/ccRAQxyY.s:54     .text:0000000000000054 .L0 
+     /tmp/ccRAQxyY.s:56     .text:0000000000000058 .L0 
+     /tmp/ccRAQxyY.s:57     .text:0000000000000058 .L0 
+     /tmp/ccRAQxyY.s:59     .text:000000000000005c .L0 
+     /tmp/ccRAQxyY.s:61     .text:0000000000000060 .L0 
+     /tmp/ccRAQxyY.s:62     .text:0000000000000060 .L0 
+     /tmp/ccRAQxyY.s:65     .text:000000000000006c .L0 
+     /tmp/ccRAQxyY.s:67     .text:0000000000000070 .L0 
+     /tmp/ccRAQxyY.s:69     .text:0000000000000074 .L0 
+     /tmp/ccRAQxyY.s:71     .text:0000000000000078 .L0 
+     /tmp/ccRAQxyY.s:73     .text:000000000000007c .L0 
+     /tmp/ccRAQxyY.s:75     .text:0000000000000084 .L0 
+     /tmp/ccRAQxyY.s:81     .text:0000000000000084 _ZN16AlokatorMemorije9mem_allocEm
+     /tmp/ccRAQxyY.s:84     .text:0000000000000084 .L0 
+     /tmp/ccRAQxyY.s:86     .text:0000000000000084 .L0 
+     /tmp/ccRAQxyY.s:87     .text:0000000000000088 .L0 
+     /tmp/ccRAQxyY.s:89     .text:000000000000008c .L0 
+     /tmp/ccRAQxyY.s:91     .text:0000000000000090 .L0 
+     /tmp/ccRAQxyY.s:93     .text:0000000000000090 .L0 
+     /tmp/ccRAQxyY.s:96     .text:0000000000000098 .L0 
+     /tmp/ccRAQxyY.s:97     .text:0000000000000098 .L0 
+     /tmp/ccRAQxyY.s:99     .text:000000000000009c .L0 
+     /tmp/ccRAQxyY.s:102    .text:00000000000000a0 .L0 
+     /tmp/ccRAQxyY.s:104    .text:00000000000000a4 .L0 
+     /tmp/ccRAQxyY.s:106    .text:00000000000000a8 .L0 
+     /tmp/ccRAQxyY.s:109    .text:00000000000000ac .L0 
+     /tmp/ccRAQxyY.s:111    .text:00000000000000ac .L0 
+     /tmp/ccRAQxyY.s:112    .text:00000000000000ac .L0 
+     /tmp/ccRAQxyY.s:120    .text:00000000000000b4 .L0 
+     /tmp/ccRAQxyY.s:121    .text:00000000000000b4 .L0 
+     /tmp/ccRAQxyY.s:123    .text:00000000000000b8 .L0 
+     /tmp/ccRAQxyY.s:126    .text:00000000000000bc .L0 
+GAS LISTING /tmp/ccRAQxyY.s 			page 14
+
+
+     /tmp/ccRAQxyY.s:127    .text:00000000000000bc .L0 
+     /tmp/ccRAQxyY.s:129    .text:00000000000000c0 .L0 
+     /tmp/ccRAQxyY.s:131    .text:00000000000000c4 .L0 
+     /tmp/ccRAQxyY.s:132    .text:00000000000000c4 .L0 
+     /tmp/ccRAQxyY.s:134    .text:00000000000000c8 .L0 
+     /tmp/ccRAQxyY.s:136    .text:00000000000000cc .L0 
+     /tmp/ccRAQxyY.s:137    .text:00000000000000cc .L0 
+     /tmp/ccRAQxyY.s:139    .text:00000000000000d0 .L0 
+     /tmp/ccRAQxyY.s:141    .text:00000000000000d4 .L0 
+     /tmp/ccRAQxyY.s:142    .text:00000000000000d4 .L0 
+     /tmp/ccRAQxyY.s:144    .text:00000000000000d8 .L0 
+     /tmp/ccRAQxyY.s:146    .text:00000000000000dc .L0 
+     /tmp/ccRAQxyY.s:147    .text:00000000000000dc .L0 
+     /tmp/ccRAQxyY.s:150    .text:00000000000000e0 .L0 
+     /tmp/ccRAQxyY.s:151    .text:00000000000000e0 .L0 
+     /tmp/ccRAQxyY.s:153    .text:00000000000000e4 .L0 
+     /tmp/ccRAQxyY.s:155    .text:00000000000000e8 .L0 
+     /tmp/ccRAQxyY.s:156    .text:00000000000000e8 .L0 
+     /tmp/ccRAQxyY.s:164    .text:00000000000000ec .L0 
+     /tmp/ccRAQxyY.s:166    .text:00000000000000f0 .L0 
+     /tmp/ccRAQxyY.s:167    .text:00000000000000f0 .L0 
+     /tmp/ccRAQxyY.s:169    .text:00000000000000f4 .L0 
+     /tmp/ccRAQxyY.s:170    .text:00000000000000f4 .L0 
+     /tmp/ccRAQxyY.s:174    .text:00000000000000f8 .L0 
+     /tmp/ccRAQxyY.s:175    .text:00000000000000fc .L0 
+     /tmp/ccRAQxyY.s:176    .text:00000000000000fc .L0 
+     /tmp/ccRAQxyY.s:177    .text:00000000000000fc .L0 
+     /tmp/ccRAQxyY.s:179    .text:0000000000000100 .L0 
+     /tmp/ccRAQxyY.s:183    .text:0000000000000104 .L0 
+     /tmp/ccRAQxyY.s:189    .text:0000000000000104 .L0 
+     /tmp/ccRAQxyY.s:190    .text:0000000000000104 .L0 
+     /tmp/ccRAQxyY.s:197    .text:000000000000010c .L0 
+     /tmp/ccRAQxyY.s:198    .text:000000000000010c .L0 
+     /tmp/ccRAQxyY.s:200    .text:0000000000000110 .L0 
+     /tmp/ccRAQxyY.s:205    .text:0000000000000118 .L0 
+     /tmp/ccRAQxyY.s:206    .text:0000000000000118 .L0 
+     /tmp/ccRAQxyY.s:210    .text:000000000000011c .L0 
+     /tmp/ccRAQxyY.s:214    .text:0000000000000120 .L0 
+     /tmp/ccRAQxyY.s:215    .text:0000000000000120 .L0 
+     /tmp/ccRAQxyY.s:217    .text:0000000000000124 .L0 
+     /tmp/ccRAQxyY.s:220    .text:0000000000000128 .L0 
+     /tmp/ccRAQxyY.s:222    .text:000000000000012c .L0 
+     /tmp/ccRAQxyY.s:223    .text:000000000000012c .L0 
+     /tmp/ccRAQxyY.s:225    .text:0000000000000130 .L0 
+     /tmp/ccRAQxyY.s:227    .text:0000000000000134 .L0 
+     /tmp/ccRAQxyY.s:228    .text:0000000000000134 .L0 
+     /tmp/ccRAQxyY.s:231    .text:0000000000000138 .L0 
+     /tmp/ccRAQxyY.s:234    .text:000000000000013c .L0 
+     /tmp/ccRAQxyY.s:235    .text:000000000000013c .L0 
+     /tmp/ccRAQxyY.s:237    .text:0000000000000140 .L0 
+     /tmp/ccRAQxyY.s:239    .text:0000000000000144 .L0 
+     /tmp/ccRAQxyY.s:240    .text:0000000000000144 .L0 
+     /tmp/ccRAQxyY.s:242    .text:0000000000000148 .L0 
+     /tmp/ccRAQxyY.s:249    .text:0000000000000150 .L0 
+     /tmp/ccRAQxyY.s:252    .text:0000000000000158 .L0 
+     /tmp/ccRAQxyY.s:258    .text:0000000000000158 _ZN16AlokatorMemorije5SpojiEPNS_16SlobodnaMemorijaE
+     /tmp/ccRAQxyY.s:261    .text:0000000000000158 .L0 
+GAS LISTING /tmp/ccRAQxyY.s 			page 15
+
+
+     /tmp/ccRAQxyY.s:263    .text:0000000000000158 .L0 
+     /tmp/ccRAQxyY.s:264    .text:000000000000015c .L0 
+     /tmp/ccRAQxyY.s:266    .text:0000000000000160 .L0 
+     /tmp/ccRAQxyY.s:268    .text:0000000000000164 .L0 
+     /tmp/ccRAQxyY.s:270    .text:0000000000000164 .L0 
+     /tmp/ccRAQxyY.s:272    .text:0000000000000168 .L0 
+     /tmp/ccRAQxyY.s:274    .text:000000000000016c .L0 
+     /tmp/ccRAQxyY.s:276    .text:0000000000000170 .L0 
+     /tmp/ccRAQxyY.s:277    .text:0000000000000170 .L0 
+     /tmp/ccRAQxyY.s:279    .text:0000000000000174 .L0 
+     /tmp/ccRAQxyY.s:281    .text:0000000000000178 .L0 
+     /tmp/ccRAQxyY.s:283    .text:000000000000017c .L0 
+     /tmp/ccRAQxyY.s:286    .text:0000000000000180 .L0 
+     /tmp/ccRAQxyY.s:287    .text:0000000000000184 .L0 
+     /tmp/ccRAQxyY.s:288    .text:0000000000000184 .L0 
+     /tmp/ccRAQxyY.s:289    .text:0000000000000184 .L0 
+     /tmp/ccRAQxyY.s:291    .text:0000000000000188 .L0 
+     /tmp/ccRAQxyY.s:294    .text:000000000000018c .L0 
+     /tmp/ccRAQxyY.s:296    .text:000000000000018c .L0 
+     /tmp/ccRAQxyY.s:297    .text:000000000000018c .L0 
+     /tmp/ccRAQxyY.s:299    .text:0000000000000190 .L0 
+     /tmp/ccRAQxyY.s:302    .text:0000000000000198 .L0 
+     /tmp/ccRAQxyY.s:303    .text:0000000000000198 .L0 
+     /tmp/ccRAQxyY.s:305    .text:000000000000019c .L0 
+     /tmp/ccRAQxyY.s:307    .text:00000000000001a0 .L0 
+     /tmp/ccRAQxyY.s:309    .text:00000000000001a4 .L0 
+     /tmp/ccRAQxyY.s:310    .text:00000000000001a4 .L0 
+     /tmp/ccRAQxyY.s:312    .text:00000000000001ac .L0 
+     /tmp/ccRAQxyY.s:318    .text:00000000000001ac _ZN16AlokatorMemorije8mem_freeEPv
+     /tmp/ccRAQxyY.s:321    .text:00000000000001ac .L0 
+     /tmp/ccRAQxyY.s:323    .text:00000000000001ac .L0 
+     /tmp/ccRAQxyY.s:324    .text:00000000000001ac .L0 
+     /tmp/ccRAQxyY.s:325    .text:00000000000001ac .L0 
+     /tmp/ccRAQxyY.s:328    .text:00000000000001b8 .L0 
+     /tmp/ccRAQxyY.s:330    .text:00000000000001bc .L0 
+     /tmp/ccRAQxyY.s:331    .text:00000000000001c0 .L0 
+     /tmp/ccRAQxyY.s:336    .text:00000000000001d0 .L0 
+     /tmp/ccRAQxyY.s:337    .text:00000000000001d0 .L0 
+     /tmp/ccRAQxyY.s:338    .text:00000000000001d0 .L0 
+     /tmp/ccRAQxyY.s:339    .text:00000000000001d0 .L0 
+     /tmp/ccRAQxyY.s:341    .text:00000000000001d4 .L0 
+     /tmp/ccRAQxyY.s:345    .text:00000000000001dc .L0 
+     /tmp/ccRAQxyY.s:348    .text:00000000000001e8 .L0 
+     /tmp/ccRAQxyY.s:351    .text:00000000000001ec .L0 
+     /tmp/ccRAQxyY.s:352    .text:00000000000001ec .L0 
+     /tmp/ccRAQxyY.s:355    .text:00000000000001f0 .L0 
+     /tmp/ccRAQxyY.s:356    .text:00000000000001f0 .L0 
+     /tmp/ccRAQxyY.s:359    .text:00000000000001f4 .L0 
+     /tmp/ccRAQxyY.s:363    .text:00000000000001f8 .L0 
+     /tmp/ccRAQxyY.s:365    .text:00000000000001fc .L0 
+     /tmp/ccRAQxyY.s:368    .text:0000000000000200 .L0 
+     /tmp/ccRAQxyY.s:369    .text:0000000000000200 .L0 
+     /tmp/ccRAQxyY.s:371    .text:0000000000000204 .L0 
+     /tmp/ccRAQxyY.s:374    .text:0000000000000208 .L0 
+     /tmp/ccRAQxyY.s:377    .text:000000000000020c .L0 
+     /tmp/ccRAQxyY.s:378    .text:000000000000020c .L0 
+     /tmp/ccRAQxyY.s:380    .text:0000000000000210 .L0 
+GAS LISTING /tmp/ccRAQxyY.s 			page 16
+
+
+     /tmp/ccRAQxyY.s:381    .text:0000000000000210 .L0 
+     /tmp/ccRAQxyY.s:383    .text:0000000000000214 .L0 
+     /tmp/ccRAQxyY.s:385    .text:0000000000000218 .L0 
+     /tmp/ccRAQxyY.s:386    .text:0000000000000218 .L0 
+     /tmp/ccRAQxyY.s:389    .text:000000000000021c .L0 
+     /tmp/ccRAQxyY.s:391    .text:0000000000000220 .L0 
+     /tmp/ccRAQxyY.s:392    .text:0000000000000220 .L0 
+     /tmp/ccRAQxyY.s:395    .text:0000000000000224 .L0 
+     /tmp/ccRAQxyY.s:396    .text:0000000000000224 .L0 
+     /tmp/ccRAQxyY.s:401    .text:0000000000000230 .L0 
+     /tmp/ccRAQxyY.s:402    .text:0000000000000230 .L0 
+     /tmp/ccRAQxyY.s:407    .text:0000000000000240 .L0 
+     /tmp/ccRAQxyY.s:408    .text:0000000000000240 .L0 
+     /tmp/ccRAQxyY.s:412    .text:0000000000000244 .L0 
+     /tmp/ccRAQxyY.s:413    .text:0000000000000248 .L0 
+     /tmp/ccRAQxyY.s:414    .text:0000000000000248 .L0 
+     /tmp/ccRAQxyY.s:416    .text:000000000000024c .L0 
+     /tmp/ccRAQxyY.s:417    .text:000000000000024c .L0 
+     /tmp/ccRAQxyY.s:419    .text:0000000000000250 .L0 
+     /tmp/ccRAQxyY.s:421    .text:0000000000000254 .L0 
+     /tmp/ccRAQxyY.s:424    .text:0000000000000258 .L0 
+     /tmp/ccRAQxyY.s:428    .text:000000000000025c .L0 
+     /tmp/ccRAQxyY.s:430    .text:000000000000025c .L0 
+     /tmp/ccRAQxyY.s:431    .text:000000000000025c .L0 
+     /tmp/ccRAQxyY.s:435    .text:0000000000000264 .L0 
+     /tmp/ccRAQxyY.s:436    .text:0000000000000264 .L0 
+     /tmp/ccRAQxyY.s:437    .text:0000000000000264 .L0 
+     /tmp/ccRAQxyY.s:438    .text:0000000000000264 .L0 
+     /tmp/ccRAQxyY.s:439    .text:0000000000000264 .L0 
+     /tmp/ccRAQxyY.s:441    .text:0000000000000264 .L0 
+     /tmp/ccRAQxyY.s:444    .text:0000000000000268 .L0 
+     /tmp/ccRAQxyY.s:447    .text:000000000000026c .L0 
+     /tmp/ccRAQxyY.s:448    .text:000000000000026c .L0 
+     /tmp/ccRAQxyY.s:449    .text:000000000000026c .L0 
+     /tmp/ccRAQxyY.s:450    .text:000000000000026c .L0 
+     /tmp/ccRAQxyY.s:451    .text:000000000000026c .L0 
+     /tmp/ccRAQxyY.s:453    .text:000000000000026c .L0 
+     /tmp/ccRAQxyY.s:456    .text:0000000000000274 .L0 
+     /tmp/ccRAQxyY.s:465    .bss:0000000000000000 _ZN16AlokatorMemorije8memorijaE
+     /tmp/ccRAQxyY.s:462    .bss:0000000000000000 .LANCHOR0
+     /tmp/ccRAQxyY.s:471    .text:0000000000000274 .L0 
+     /tmp/ccRAQxyY.s:22     .text:000000000000000c .L0 
+     /tmp/ccRAQxyY.s:28     .text:0000000000000018 .L0 
+     /tmp/ccRAQxyY.s:40     .text:000000000000002c .L0 
+     /tmp/ccRAQxyY.s:42     .text:0000000000000038 .L0 
+     /tmp/ccRAQxyY.s:62     .text:0000000000000060 .L0 
+     /tmp/ccRAQxyY.s:325    .text:00000000000001ac .L0 
+     /tmp/ccRAQxyY.s:345    .text:00000000000001dc .L0 
+     /tmp/ccRAQxyY.s:36     .text:000000000000002c .L4
+     /tmp/ccRAQxyY.s:25     .text:0000000000000018 .L2
+     /tmp/ccRAQxyY.s:245    .text:0000000000000150 .L15
+     /tmp/ccRAQxyY.s:208    .text:000000000000011c .L14
+     /tmp/ccRAQxyY.s:148    .text:00000000000000e0 .L9
+     /tmp/ccRAQxyY.s:182    .text:0000000000000104 .L10
+     /tmp/ccRAQxyY.s:172    .text:00000000000000f8 .L5
+     /tmp/ccRAQxyY.s:158    .text:00000000000000ec .L7
+     /tmp/ccRAQxyY.s:232    .text:000000000000013c .L13
+GAS LISTING /tmp/ccRAQxyY.s 			page 17
+
+
+     /tmp/ccRAQxyY.s:115    .text:00000000000000b4 .L17
+     /tmp/ccRAQxyY.s:202    .text:0000000000000118 .L11
+     /tmp/ccRAQxyY.s:193    .text:000000000000010c .L18
+     /tmp/ccRAQxyY.s:284    .text:0000000000000180 .L19
+     /tmp/ccRAQxyY.s:293    .text:000000000000018c .L22
+     /tmp/ccRAQxyY.s:434    .text:0000000000000264 .L30
+     /tmp/ccRAQxyY.s:446    .text:000000000000026c .L31
+     /tmp/ccRAQxyY.s:375    .text:000000000000020c .L25
+     /tmp/ccRAQxyY.s:361    .text:00000000000001f8 .L26
+     /tmp/ccRAQxyY.s:427    .text:000000000000025c .L36
+     /tmp/ccRAQxyY.s:393    .text:0000000000000224 .L29
+     /tmp/ccRAQxyY.s:387    .text:000000000000021c .L28
+     /tmp/ccRAQxyY.s:410    .text:0000000000000244 .L24
+     /tmp/ccRAQxyY.s:914    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+     /tmp/ccRAQxyY.s:1790   .debug_str:0000000000000144 .LASF32
+     /tmp/ccRAQxyY.s:1806   .debug_str:00000000000002a3 .LASF33
+     /tmp/ccRAQxyY.s:1792   .debug_str:0000000000000208 .LASF34
+     /tmp/ccRAQxyY.s:5      .text:0000000000000000 .Ltext0
+     /tmp/ccRAQxyY.s:468    .text:0000000000000274 .Letext0
+     /tmp/ccRAQxyY.s:1752   .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/ccRAQxyY.s:1800   .debug_str:0000000000000270 .LASF0
+     /tmp/ccRAQxyY.s:1784   .debug_str:0000000000000109 .LASF1
+     /tmp/ccRAQxyY.s:1772   .debug_str:000000000000007d .LASF2
+     /tmp/ccRAQxyY.s:1760   .debug_str:0000000000000028 .LASF4
+     /tmp/ccRAQxyY.s:1782   .debug_str:00000000000000f7 .LASF3
+     /tmp/ccRAQxyY.s:1756   .debug_str:0000000000000013 .LASF5
+     /tmp/ccRAQxyY.s:1754   .debug_str:0000000000000000 .LASF6
+     /tmp/ccRAQxyY.s:1766   .debug_str:000000000000004b .LASF7
+     /tmp/ccRAQxyY.s:1810   .debug_str:00000000000002c1 .LASF8
+     /tmp/ccRAQxyY.s:1758   .debug_str:000000000000001a .LASF9
+     /tmp/ccRAQxyY.s:1840   .debug_str:000000000000039c .LASF10
+     /tmp/ccRAQxyY.s:1770   .debug_str:000000000000006e .LASF11
+     /tmp/ccRAQxyY.s:1828   .debug_str:000000000000035a .LASF12
+     /tmp/ccRAQxyY.s:1816   .debug_str:00000000000002f0 .LASF13
+     /tmp/ccRAQxyY.s:1786   .debug_str:000000000000011c .LASF14
+     /tmp/ccRAQxyY.s:1764   .debug_str:0000000000000035 .LASF15
+     /tmp/ccRAQxyY.s:1814   .debug_str:00000000000002da .LASF16
+     /tmp/ccRAQxyY.s:1838   .debug_str:000000000000038b .LASF19
+     /tmp/ccRAQxyY.s:1822   .debug_str:000000000000030e .LASF35
+     /tmp/ccRAQxyY.s:1820   .debug_str:0000000000000309 .LASF17
+     /tmp/ccRAQxyY.s:1802   .debug_str:000000000000027d .LASF18
+     /tmp/ccRAQxyY.s:1812   .debug_str:00000000000002d1 .LASF36
+     /tmp/ccRAQxyY.s:1762   .debug_str:000000000000002f .LASF37
+     /tmp/ccRAQxyY.s:1824   .debug_str:000000000000031f .LASF38
+     /tmp/ccRAQxyY.s:1796   .debug_str:000000000000024a .LASF20
+     /tmp/ccRAQxyY.s:1778   .debug_str:00000000000000b2 .LASF21
+     /tmp/ccRAQxyY.s:1830   .debug_str:000000000000036a .LASF22
+     /tmp/ccRAQxyY.s:1788   .debug_str:0000000000000128 .LASF23
+     /tmp/ccRAQxyY.s:1768   .debug_str:000000000000005e .LASF39
+     /tmp/ccRAQxyY.s:1780   .debug_str:00000000000000ce .LASF40
+     /tmp/ccRAQxyY.s:1832   .debug_str:0000000000000374 .LASF24
+     /tmp/ccRAQxyY.s:1776   .debug_str:0000000000000090 .LASF25
+     /tmp/ccRAQxyY.s:1818   .debug_str:0000000000000300 .LASF41
+     /tmp/ccRAQxyY.s:1794   .debug_str:0000000000000228 .LASF42
+     /tmp/ccRAQxyY.s:1804   .debug_str:0000000000000283 .LASF43
+     /tmp/ccRAQxyY.s:259    .text:0000000000000158 .LFB3
+     /tmp/ccRAQxyY.s:313    .text:00000000000001ac .LFE3
+GAS LISTING /tmp/ccRAQxyY.s 			page 18
+
+
+     /tmp/ccRAQxyY.s:1774   .debug_str:000000000000008b .LASF26
+     /tmp/ccRAQxyY.s:1808   .debug_str:00000000000002bc .LASF27
+     /tmp/ccRAQxyY.s:319    .text:00000000000001ac .LFB2
+     /tmp/ccRAQxyY.s:457    .text:0000000000000274 .LFE2
+     /tmp/ccRAQxyY.s:1512   .debug_loc:0000000000000000 .LLST5
+     /tmp/ccRAQxyY.s:1826   .debug_str:0000000000000353 .LASF28
+     /tmp/ccRAQxyY.s:1549   .debug_loc:000000000000009b .LLST6
+     /tmp/ccRAQxyY.s:1575   .debug_loc:000000000000010d .LLST7
+     /tmp/ccRAQxyY.s:1595   .debug_loc:000000000000016a .LLST8
+     /tmp/ccRAQxyY.s:1619   .debug_loc:00000000000001da .LLST9
+     /tmp/ccRAQxyY.s:399    .text:0000000000000230 .LVL22
+     /tmp/ccRAQxyY.s:405    .text:0000000000000240 .LVL23
+     /tmp/ccRAQxyY.s:82     .text:0000000000000084 .LFB1
+     /tmp/ccRAQxyY.s:253    .text:0000000000000158 .LFE1
+     /tmp/ccRAQxyY.s:1640   .debug_loc:0000000000000229 .LLST0
+     /tmp/ccRAQxyY.s:1836   .debug_str:0000000000000386 .LASF29
+     /tmp/ccRAQxyY.s:1680   .debug_loc:00000000000002c7 .LLST1
+     /tmp/ccRAQxyY.s:1798   .debug_str:0000000000000264 .LASF30
+     /tmp/ccRAQxyY.s:1698   .debug_loc:0000000000000313 .LLST2
+     /tmp/ccRAQxyY.s:1709   .debug_loc:0000000000000349 .LLST3
+     /tmp/ccRAQxyY.s:1744   .debug_ranges:0000000000000000 .Ldebug_ranges0
+     /tmp/ccRAQxyY.s:1834   .debug_str:000000000000037e .LASF31
+     /tmp/ccRAQxyY.s:1720   .debug_loc:000000000000037f .LLST4
+     /tmp/ccRAQxyY.s:10     .text:0000000000000000 .LFB0
+     /tmp/ccRAQxyY.s:76     .text:0000000000000084 .LFE0
+     /tmp/ccRAQxyY.s:322    .text:00000000000001ac .LVL14
+     /tmp/ccRAQxyY.s:397    .text:0000000000000228 .LVL21
+     /tmp/ccRAQxyY.s:422    .text:0000000000000254 .LVL25
+     /tmp/ccRAQxyY.s:426    .text:000000000000025c .LVL26
+     /tmp/ccRAQxyY.s:442    .text:0000000000000268 .LVL28
+     /tmp/ccRAQxyY.s:445    .text:000000000000026c .LVL29
+     /tmp/ccRAQxyY.s:454    .text:0000000000000270 .LVL30
+     /tmp/ccRAQxyY.s:353    .text:00000000000001f0 .LVL16
+     /tmp/ccRAQxyY.s:433    .text:0000000000000264 .LVL27
+     /tmp/ccRAQxyY.s:357    .text:00000000000001f4 .LVL17
+     /tmp/ccRAQxyY.s:367    .text:0000000000000200 .LVL19
+     /tmp/ccRAQxyY.s:372    .text:0000000000000208 .LVL20
+     /tmp/ccRAQxyY.s:350    .text:00000000000001ec .LVL15
+     /tmp/ccRAQxyY.s:360    .text:00000000000001f8 .LVL18
+     /tmp/ccRAQxyY.s:409    .text:0000000000000244 .LVL24
+     /tmp/ccRAQxyY.s:85     .text:0000000000000084 .LVL0
+     /tmp/ccRAQxyY.s:113    .text:00000000000000b0 .LVL3
+     /tmp/ccRAQxyY.s:157    .text:00000000000000ec .LVL5
+     /tmp/ccRAQxyY.s:181    .text:0000000000000104 .LVL7
+     /tmp/ccRAQxyY.s:229    .text:0000000000000138 .LVL10
+     /tmp/ccRAQxyY.s:244    .text:0000000000000150 .LVL11
+     /tmp/ccRAQxyY.s:250    .text:0000000000000154 .LVL12
+     /tmp/ccRAQxyY.s:100    .text:00000000000000a0 .LVL1
+     /tmp/ccRAQxyY.s:107    .text:00000000000000ac .LVL2
+     /tmp/ccRAQxyY.s:171    .text:00000000000000f8 .LVL6
+     /tmp/ccRAQxyY.s:124    .text:00000000000000bc .LVL4
+     /tmp/ccRAQxyY.s:192    .text:000000000000010c .LVL8
+     /tmp/ccRAQxyY.s:472    .debug_info:0000000000000000 .Ldebug_info0
+     /tmp/ccRAQxyY.s:118    .text:00000000000000b4 .LBB5
+     /tmp/ccRAQxyY.s:159    .text:00000000000000ec .LBE5
+     /tmp/ccRAQxyY.s:187    .text:0000000000000104 .LBB6
+     /tmp/ccRAQxyY.s:194    .text:000000000000010c .LBE6
+GAS LISTING /tmp/ccRAQxyY.s 			page 19
+
+
+
+UNDEFINED SYMBOLS
+HEAP_START_ADDR
+HEAP_END_ADDR

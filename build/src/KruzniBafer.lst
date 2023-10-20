@@ -1,0 +1,626 @@
+GAS LISTING /tmp/ccZe2l6Y.s 			page 1
+
+
+   1              		.file	"KruzniBafer.cpp"
+   2              		.option pic
+   3              		.option norelax
+   4              		.text
+   5              	.Ltext0:
+   6              		.align	2
+   7              		.globl	_ZN11KruzniBafer15NapraviInstancuEv
+   9              	_ZN11KruzniBafer15NapraviInstancuEv:
+  10              	.LFB20:
+  11              		.file 1 "src/KruzniBafer.cpp"
+   1:src/KruzniBafer.cpp **** #include "../h/KruzniBafer.hpp"
+   2:src/KruzniBafer.cpp **** 
+   3:src/KruzniBafer.cpp **** KruzniBafer *KruzniBafer::NapraviInstancu() {
+  12              		.loc 1 3 45
+  13              		.cfi_startproc
+  14 0000 130101FE 		addi	sp,sp,-32
+  15              		.cfi_def_cfa_offset 32
+  16 0004 233C1100 		sd	ra,24(sp)
+  17 0008 23388100 		sd	s0,16(sp)
+  18 000c 23349100 		sd	s1,8(sp)
+  19              		.cfi_offset 1, -8
+  20              		.cfi_offset 8, -16
+  21              		.cfi_offset 9, -24
+  22 0010 13040102 		addi	s0,sp,32
+  23              		.cfi_def_cfa 8, 0
+   4:src/KruzniBafer.cpp ****     KruzniBafer* vrati = (KruzniBafer*)AlokatorMemorije::dohvatiInstancu()->mem_alloc(sizeof(Kruzni
+  24              		.loc 1 4 5
+  25              		.loc 1 4 86 is_stmt 0
+  26 0014 97000000 		call	_ZN16AlokatorMemorije15dohvatiInstancuEv@plt
+  26      E7800000 
+  27              	.LVL0:
+  28 001c 93058042 		li	a1,1064
+  29 0020 97000000 		call	_ZN16AlokatorMemorije9mem_allocEm@plt
+  29      E7800000 
+  30              	.LVL1:
+  31 0028 93040500 		mv	s1,a0
+  32              	.LVL2:
+   5:src/KruzniBafer.cpp ****     vrati->pocetak = 0;
+  33              		.loc 1 5 5 is_stmt 1
+  34              		.loc 1 5 20 is_stmt 0
+  35 002c 23300500 		sd	zero,0(a0)
+   6:src/KruzniBafer.cpp ****     vrati->kraj = 0;
+  36              		.loc 1 6 5 is_stmt 1
+  37              		.loc 1 6 17 is_stmt 0
+  38 0030 23340500 		sd	zero,8(a0)
+   7:src/KruzniBafer.cpp ****     vrati->brojac = 0;
+  39              		.loc 1 7 5 is_stmt 1
+  40              		.loc 1 7 19 is_stmt 0
+  41 0034 23380500 		sd	zero,16(a0)
+   8:src/KruzniBafer.cpp ****     vrati->zauzetostBafera = Semafor::OtvoriSemafor(0);
+  42              		.loc 1 8 5 is_stmt 1
+  43              		.loc 1 8 52 is_stmt 0
+  44 0038 13050000 		li	a0,0
+  45 003c 97000000 		call	_ZN7Semafor13OtvoriSemaforEj@plt
+  45      E7800000 
+  46              	.LVL3:
+  47              		.loc 1 8 28
+GAS LISTING /tmp/ccZe2l6Y.s 			page 2
+
+
+  48 0044 23BCA440 		sd	a0,1048(s1)
+   9:src/KruzniBafer.cpp ****     vrati->sis = false;
+  49              		.loc 1 9 5 is_stmt 1
+  50              		.loc 1 9 16 is_stmt 0
+  51 0048 23800442 		sb	zero,1056(s1)
+  10:src/KruzniBafer.cpp ****     return vrati;
+  52              		.loc 1 10 5 is_stmt 1
+  11:src/KruzniBafer.cpp **** }
+  53              		.loc 1 11 1 is_stmt 0
+  54 004c 13850400 		mv	a0,s1
+  55 0050 83308101 		ld	ra,24(sp)
+  56              		.cfi_restore 1
+  57 0054 03340101 		ld	s0,16(sp)
+  58              		.cfi_restore 8
+  59              		.cfi_def_cfa 2, 32
+  60 0058 83348100 		ld	s1,8(sp)
+  61              		.cfi_restore 9
+  62              	.LVL4:
+  63 005c 13010102 		addi	sp,sp,32
+  64              		.cfi_def_cfa_offset 0
+  65 0060 67800000 		jr	ra
+  66              		.cfi_endproc
+  67              	.LFE20:
+  69              		.align	2
+  70              		.globl	_ZN11KruzniBafer4putcEc
+  72              	_ZN11KruzniBafer4putcEc:
+  73              	.LFB21:
+  12:src/KruzniBafer.cpp **** 
+  13:src/KruzniBafer.cpp **** void KruzniBafer::putc(char c) {
+  74              		.loc 1 13 32 is_stmt 1
+  75              		.cfi_startproc
+  76              	.LVL5:
+  14:src/KruzniBafer.cpp ****     if(brojac != VELICINA_BAFERA){
+  77              		.loc 1 14 5
+  78              		.loc 1 14 8 is_stmt 0
+  79 0064 83370501 		ld	a5,16(a0)
+  80              		.loc 1 14 5
+  81 0068 13070040 		li	a4,1024
+  82 006c 6394E700 		bne	a5,a4,.L9
+  83 0070 67800000 		ret
+  84              	.L9:
+  13:src/KruzniBafer.cpp ****     if(brojac != VELICINA_BAFERA){
+  85              		.loc 1 13 32
+  86 0074 130101FF 		addi	sp,sp,-16
+  87              		.cfi_def_cfa_offset 16
+  88 0078 23341100 		sd	ra,8(sp)
+  89 007c 23308100 		sd	s0,0(sp)
+  90              		.cfi_offset 1, -8
+  91              		.cfi_offset 8, -16
+  92 0080 13040101 		addi	s0,sp,16
+  93              		.cfi_def_cfa 8, 0
+  15:src/KruzniBafer.cpp ****         bafer[kraj++] = c;
+  94              		.loc 1 15 9 is_stmt 1
+  95              		.loc 1 15 15 is_stmt 0
+  96 0084 03378500 		ld	a4,8(a0)
+  97              		.loc 1 15 19
+  98 0088 93061700 		addi	a3,a4,1
+GAS LISTING /tmp/ccZe2l6Y.s 			page 3
+
+
+  99              		.loc 1 15 23
+ 100 008c 3307E500 		add	a4,a0,a4
+ 101 0090 230CB700 		sb	a1,24(a4)
+  16:src/KruzniBafer.cpp ****         kraj %= VELICINA_BAFERA;
+ 102              		.loc 1 16 9 is_stmt 1
+ 103              		.loc 1 16 14 is_stmt 0
+ 104 0094 13F7F63F 		andi	a4,a3,1023
+ 105 0098 2334E500 		sd	a4,8(a0)
+  17:src/KruzniBafer.cpp ****         brojac++;
+ 106              		.loc 1 17 9 is_stmt 1
+ 107              		.loc 1 17 15 is_stmt 0
+ 108 009c 93871700 		addi	a5,a5,1
+ 109 00a0 2338F500 		sd	a5,16(a0)
+  18:src/KruzniBafer.cpp ****         zauzetostBafera->Signal();
+ 110              		.loc 1 18 9 is_stmt 1
+ 111              		.loc 1 18 32 is_stmt 0
+ 112 00a4 03358541 		ld	a0,1048(a0)
+ 113              	.LVL6:
+ 114 00a8 97000000 		call	_ZN7Semafor6SignalEv@plt
+ 114      E7800000 
+ 115              	.LVL7:
+  19:src/KruzniBafer.cpp ****     }
+  20:src/KruzniBafer.cpp **** }
+ 116              		.loc 1 20 1
+ 117 00b0 83308100 		ld	ra,8(sp)
+ 118              		.cfi_restore 1
+ 119 00b4 03340100 		ld	s0,0(sp)
+ 120              		.cfi_restore 8
+ 121              		.cfi_def_cfa 2, 16
+ 122 00b8 13010101 		addi	sp,sp,16
+ 123              		.cfi_def_cfa_offset 0
+ 124 00bc 67800000 		jr	ra
+ 125              		.cfi_endproc
+ 126              	.LFE21:
+ 128              		.align	2
+ 129              		.globl	_ZN11KruzniBafer4getcEv
+ 131              	_ZN11KruzniBafer4getcEv:
+ 132              	.LFB22:
+  21:src/KruzniBafer.cpp **** 
+  22:src/KruzniBafer.cpp **** char KruzniBafer::getc() {
+ 133              		.loc 1 22 26 is_stmt 1
+ 134              		.cfi_startproc
+ 135              	.LVL8:
+ 136 00c0 130101FE 		addi	sp,sp,-32
+ 137              		.cfi_def_cfa_offset 32
+ 138 00c4 233C1100 		sd	ra,24(sp)
+ 139 00c8 23388100 		sd	s0,16(sp)
+ 140 00cc 23349100 		sd	s1,8(sp)
+ 141              		.cfi_offset 1, -8
+ 142              		.cfi_offset 8, -16
+ 143              		.cfi_offset 9, -24
+ 144 00d0 13040102 		addi	s0,sp,32
+ 145              		.cfi_def_cfa 8, 0
+ 146 00d4 93040500 		mv	s1,a0
+  23:src/KruzniBafer.cpp ****     if(!sis)zauzetostBafera->Wait();
+ 147              		.loc 1 23 5
+ 148              		.loc 1 23 9 is_stmt 0
+GAS LISTING /tmp/ccZe2l6Y.s 			page 4
+
+
+ 149 00d8 83470542 		lbu	a5,1056(a0)
+ 150              		.loc 1 23 5
+ 151 00dc 638E0702 		beqz	a5,.L13
+ 152              	.LVL9:
+ 153              	.L11:
+  24:src/KruzniBafer.cpp ****     char c = bafer[pocetak++];
+ 154              		.loc 1 24 5 is_stmt 1
+ 155              		.loc 1 24 20 is_stmt 0
+ 156 00e0 83B70400 		ld	a5,0(s1)
+ 157              		.loc 1 24 27
+ 158 00e4 13871700 		addi	a4,a5,1
+ 159              		.loc 1 24 29
+ 160 00e8 B387F400 		add	a5,s1,a5
+ 161 00ec 03C58701 		lbu	a0,24(a5)
+ 162              	.LVL10:
+  25:src/KruzniBafer.cpp ****     pocetak %= VELICINA_BAFERA;
+ 163              		.loc 1 25 5 is_stmt 1
+ 164              		.loc 1 25 13 is_stmt 0
+ 165 00f0 9377F73F 		andi	a5,a4,1023
+ 166 00f4 23B0F400 		sd	a5,0(s1)
+  26:src/KruzniBafer.cpp ****     brojac--;
+ 167              		.loc 1 26 5 is_stmt 1
+ 168 00f8 83B70401 		ld	a5,16(s1)
+ 169              		.loc 1 26 11 is_stmt 0
+ 170 00fc 9387F7FF 		addi	a5,a5,-1
+ 171 0100 23B8F400 		sd	a5,16(s1)
+  27:src/KruzniBafer.cpp ****     return c;
+ 172              		.loc 1 27 5 is_stmt 1
+  28:src/KruzniBafer.cpp **** }
+ 173              		.loc 1 28 1 is_stmt 0
+ 174 0104 83308101 		ld	ra,24(sp)
+ 175              		.cfi_remember_state
+ 176              		.cfi_restore 1
+ 177 0108 03340101 		ld	s0,16(sp)
+ 178              		.cfi_restore 8
+ 179              		.cfi_def_cfa 2, 32
+ 180 010c 83348100 		ld	s1,8(sp)
+ 181              		.cfi_restore 9
+ 182              	.LVL11:
+ 183 0110 13010102 		addi	sp,sp,32
+ 184              		.cfi_def_cfa_offset 0
+ 185 0114 67800000 		jr	ra
+ 186              	.LVL12:
+ 187              	.L13:
+ 188              		.cfi_restore_state
+  23:src/KruzniBafer.cpp ****     char c = bafer[pocetak++];
+ 189              		.loc 1 23 13 is_stmt 1 discriminator 1
+  23:src/KruzniBafer.cpp ****     char c = bafer[pocetak++];
+ 190              		.loc 1 23 34 is_stmt 0 discriminator 1
+ 191 0118 03358541 		ld	a0,1048(a0)
+ 192 011c 97000000 		call	_ZN7Semafor4WaitEv@plt
+ 192      E7800000 
+ 193              	.LVL13:
+ 194 0124 6FF0DFFB 		j	.L11
+ 195              		.cfi_endproc
+ 196              	.LFE22:
+ 198              		.align	2
+GAS LISTING /tmp/ccZe2l6Y.s 			page 5
+
+
+ 199              		.globl	_ZN11KruzniBafer8IsprazniEv
+ 201              	_ZN11KruzniBafer8IsprazniEv:
+ 202              	.LFB23:
+  29:src/KruzniBafer.cpp **** 
+  30:src/KruzniBafer.cpp **** void KruzniBafer::Isprazni() {
+ 203              		.loc 1 30 30 is_stmt 1
+ 204              		.cfi_startproc
+ 205              	.LVL14:
+ 206 0128 130101FE 		addi	sp,sp,-32
+ 207              		.cfi_def_cfa_offset 32
+ 208 012c 233C1100 		sd	ra,24(sp)
+ 209 0130 23388100 		sd	s0,16(sp)
+ 210 0134 23349100 		sd	s1,8(sp)
+ 211 0138 23302101 		sd	s2,0(sp)
+ 212              		.cfi_offset 1, -8
+ 213              		.cfi_offset 8, -16
+ 214              		.cfi_offset 9, -24
+ 215              		.cfi_offset 18, -32
+ 216 013c 13040102 		addi	s0,sp,32
+ 217              		.cfi_def_cfa 8, 0
+ 218 0140 93040500 		mv	s1,a0
+  31:src/KruzniBafer.cpp ****     sis = true;
+ 219              		.loc 1 31 5
+ 220              		.loc 1 31 9 is_stmt 0
+ 221 0144 93071000 		li	a5,1
+ 222 0148 2300F542 		sb	a5,1056(a0)
+ 223              	.LVL15:
+ 224              	.L16:
+  32:src/KruzniBafer.cpp ****     while(brojac != 0){
+ 225              		.loc 1 32 5 is_stmt 1
+ 226              		.loc 1 32 18
+ 227              		.loc 1 32 11 is_stmt 0
+ 228 014c 83B70401 		ld	a5,16(s1)
+ 229              		.loc 1 32 18
+ 230 0150 638E0702 		beqz	a5,.L14
+  33:src/KruzniBafer.cpp ****         if(*((char*)CONSOLE_STATUS) & CONSOLE_TX_STATUS_BIT){
+ 231              		.loc 1 33 9 is_stmt 1
+ 232              		.loc 1 33 12 is_stmt 0
+ 233 0154 97070000 		la	a5,CONSOLE_STATUS
+ 233      83B70700 
+ 234 015c 83B70700 		ld	a5,0(a5)
+ 235 0160 83C70700 		lbu	a5,0(a5)
+ 236              		.loc 1 33 9
+ 237 0164 93F70702 		andi	a5,a5,32
+ 238 0168 E38207FE 		beqz	a5,.L16
+  34:src/KruzniBafer.cpp ****             *((char*)CONSOLE_TX_DATA) = this->getc();
+ 239              		.loc 1 34 13 is_stmt 1
+ 240 016c 97070000 		la	a5,CONSOLE_TX_DATA
+ 240      83B70700 
+ 241 0174 03B90700 		ld	s2,0(a5)
+ 242              		.loc 1 34 51 is_stmt 0
+ 243 0178 13850400 		mv	a0,s1
+ 244 017c 97000000 		call	_ZN11KruzniBafer4getcEv
+ 244      E7800000 
+ 245              	.LVL16:
+ 246              		.loc 1 34 39
+ 247 0184 2300A900 		sb	a0,0(s2)
+GAS LISTING /tmp/ccZe2l6Y.s 			page 6
+
+
+ 248 0188 6FF05FFC 		j	.L16
+ 249              	.L14:
+  35:src/KruzniBafer.cpp ****         }
+  36:src/KruzniBafer.cpp ****     }
+  37:src/KruzniBafer.cpp **** }
+ 250              		.loc 1 37 1
+ 251 018c 83308101 		ld	ra,24(sp)
+ 252              		.cfi_restore 1
+ 253 0190 03340101 		ld	s0,16(sp)
+ 254              		.cfi_restore 8
+ 255              		.cfi_def_cfa 2, 32
+ 256 0194 83348100 		ld	s1,8(sp)
+ 257              		.cfi_restore 9
+ 258              	.LVL17:
+ 259 0198 03390100 		ld	s2,0(sp)
+ 260              		.cfi_restore 18
+ 261 019c 13010102 		addi	sp,sp,32
+ 262              		.cfi_def_cfa_offset 0
+ 263 01a0 67800000 		jr	ra
+ 264              		.cfi_endproc
+ 265              	.LFE23:
+ 267              	.Letext0:
+ 268              		.file 2 "src/../h/../lib/hw.h"
+ 269              		.file 3 "src/../h/AlokatorMemorije.h"
+ 270              		.file 4 "src/../h/TCB.hpp"
+ 271              		.file 5 "src/../h/syscall_c.h"
+ 272              		.file 6 "src/../h/Semafor.hpp"
+ 273              		.file 7 "src/../h/KruzniBafer.hpp"
+GAS LISTING /tmp/ccZe2l6Y.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 KruzniBafer.cpp
+     /tmp/ccZe2l6Y.s:9      .text:0000000000000000 _ZN11KruzniBafer15NapraviInstancuEv
+     /tmp/ccZe2l6Y.s:13     .text:0000000000000000 .L0 
+     /tmp/ccZe2l6Y.s:14     .text:0000000000000000 .L0 
+     /tmp/ccZe2l6Y.s:15     .text:0000000000000004 .L0 
+     /tmp/ccZe2l6Y.s:19     .text:0000000000000010 .L0 
+     /tmp/ccZe2l6Y.s:20     .text:0000000000000010 .L0 
+     /tmp/ccZe2l6Y.s:21     .text:0000000000000010 .L0 
+     /tmp/ccZe2l6Y.s:23     .text:0000000000000014 .L0 
+     /tmp/ccZe2l6Y.s:25     .text:0000000000000014 .L0 
+     /tmp/ccZe2l6Y.s:26     .text:0000000000000014 .L0 
+     /tmp/ccZe2l6Y.s:34     .text:000000000000002c .L0 
+     /tmp/ccZe2l6Y.s:35     .text:000000000000002c .L0 
+     /tmp/ccZe2l6Y.s:37     .text:0000000000000030 .L0 
+     /tmp/ccZe2l6Y.s:38     .text:0000000000000030 .L0 
+     /tmp/ccZe2l6Y.s:40     .text:0000000000000034 .L0 
+     /tmp/ccZe2l6Y.s:41     .text:0000000000000034 .L0 
+     /tmp/ccZe2l6Y.s:43     .text:0000000000000038 .L0 
+     /tmp/ccZe2l6Y.s:44     .text:0000000000000038 .L0 
+     /tmp/ccZe2l6Y.s:48     .text:0000000000000044 .L0 
+     /tmp/ccZe2l6Y.s:50     .text:0000000000000048 .L0 
+     /tmp/ccZe2l6Y.s:51     .text:0000000000000048 .L0 
+     /tmp/ccZe2l6Y.s:53     .text:000000000000004c .L0 
+     /tmp/ccZe2l6Y.s:54     .text:000000000000004c .L0 
+     /tmp/ccZe2l6Y.s:56     .text:0000000000000054 .L0 
+     /tmp/ccZe2l6Y.s:58     .text:0000000000000058 .L0 
+     /tmp/ccZe2l6Y.s:59     .text:0000000000000058 .L0 
+     /tmp/ccZe2l6Y.s:61     .text:000000000000005c .L0 
+     /tmp/ccZe2l6Y.s:64     .text:0000000000000060 .L0 
+     /tmp/ccZe2l6Y.s:66     .text:0000000000000064 .L0 
+     /tmp/ccZe2l6Y.s:72     .text:0000000000000064 _ZN11KruzniBafer4putcEc
+     /tmp/ccZe2l6Y.s:75     .text:0000000000000064 .L0 
+     /tmp/ccZe2l6Y.s:77     .text:0000000000000064 .L0 
+     /tmp/ccZe2l6Y.s:78     .text:0000000000000064 .L0 
+     /tmp/ccZe2l6Y.s:79     .text:0000000000000064 .L0 
+     /tmp/ccZe2l6Y.s:81     .text:0000000000000068 .L0 
+     /tmp/ccZe2l6Y.s:86     .text:0000000000000074 .L0 
+     /tmp/ccZe2l6Y.s:87     .text:0000000000000078 .L0 
+     /tmp/ccZe2l6Y.s:90     .text:0000000000000080 .L0 
+     /tmp/ccZe2l6Y.s:91     .text:0000000000000080 .L0 
+     /tmp/ccZe2l6Y.s:93     .text:0000000000000084 .L0 
+     /tmp/ccZe2l6Y.s:95     .text:0000000000000084 .L0 
+     /tmp/ccZe2l6Y.s:96     .text:0000000000000084 .L0 
+     /tmp/ccZe2l6Y.s:98     .text:0000000000000088 .L0 
+     /tmp/ccZe2l6Y.s:100    .text:000000000000008c .L0 
+     /tmp/ccZe2l6Y.s:103    .text:0000000000000094 .L0 
+     /tmp/ccZe2l6Y.s:104    .text:0000000000000094 .L0 
+     /tmp/ccZe2l6Y.s:107    .text:000000000000009c .L0 
+     /tmp/ccZe2l6Y.s:108    .text:000000000000009c .L0 
+     /tmp/ccZe2l6Y.s:111    .text:00000000000000a4 .L0 
+     /tmp/ccZe2l6Y.s:112    .text:00000000000000a4 .L0 
+     /tmp/ccZe2l6Y.s:117    .text:00000000000000b0 .L0 
+     /tmp/ccZe2l6Y.s:118    .text:00000000000000b4 .L0 
+     /tmp/ccZe2l6Y.s:120    .text:00000000000000b8 .L0 
+     /tmp/ccZe2l6Y.s:121    .text:00000000000000b8 .L0 
+     /tmp/ccZe2l6Y.s:123    .text:00000000000000bc .L0 
+GAS LISTING /tmp/ccZe2l6Y.s 			page 8
+
+
+     /tmp/ccZe2l6Y.s:125    .text:00000000000000c0 .L0 
+     /tmp/ccZe2l6Y.s:131    .text:00000000000000c0 _ZN11KruzniBafer4getcEv
+     /tmp/ccZe2l6Y.s:134    .text:00000000000000c0 .L0 
+     /tmp/ccZe2l6Y.s:136    .text:00000000000000c0 .L0 
+     /tmp/ccZe2l6Y.s:137    .text:00000000000000c4 .L0 
+     /tmp/ccZe2l6Y.s:141    .text:00000000000000d0 .L0 
+     /tmp/ccZe2l6Y.s:142    .text:00000000000000d0 .L0 
+     /tmp/ccZe2l6Y.s:143    .text:00000000000000d0 .L0 
+     /tmp/ccZe2l6Y.s:145    .text:00000000000000d4 .L0 
+     /tmp/ccZe2l6Y.s:148    .text:00000000000000d8 .L0 
+     /tmp/ccZe2l6Y.s:149    .text:00000000000000d8 .L0 
+     /tmp/ccZe2l6Y.s:151    .text:00000000000000dc .L0 
+     /tmp/ccZe2l6Y.s:155    .text:00000000000000e0 .L0 
+     /tmp/ccZe2l6Y.s:156    .text:00000000000000e0 .L0 
+     /tmp/ccZe2l6Y.s:158    .text:00000000000000e4 .L0 
+     /tmp/ccZe2l6Y.s:160    .text:00000000000000e8 .L0 
+     /tmp/ccZe2l6Y.s:164    .text:00000000000000f0 .L0 
+     /tmp/ccZe2l6Y.s:165    .text:00000000000000f0 .L0 
+     /tmp/ccZe2l6Y.s:168    .text:00000000000000f8 .L0 
+     /tmp/ccZe2l6Y.s:170    .text:00000000000000fc .L0 
+     /tmp/ccZe2l6Y.s:173    .text:0000000000000104 .L0 
+     /tmp/ccZe2l6Y.s:174    .text:0000000000000104 .L0 
+     /tmp/ccZe2l6Y.s:175    .text:0000000000000108 .L0 
+     /tmp/ccZe2l6Y.s:176    .text:0000000000000108 .L0 
+     /tmp/ccZe2l6Y.s:178    .text:000000000000010c .L0 
+     /tmp/ccZe2l6Y.s:179    .text:000000000000010c .L0 
+     /tmp/ccZe2l6Y.s:181    .text:0000000000000110 .L0 
+     /tmp/ccZe2l6Y.s:184    .text:0000000000000114 .L0 
+     /tmp/ccZe2l6Y.s:188    .text:0000000000000118 .L0 
+     /tmp/ccZe2l6Y.s:190    .text:0000000000000118 .L0 
+     /tmp/ccZe2l6Y.s:191    .text:0000000000000118 .L0 
+     /tmp/ccZe2l6Y.s:195    .text:0000000000000128 .L0 
+     /tmp/ccZe2l6Y.s:201    .text:0000000000000128 _ZN11KruzniBafer8IsprazniEv
+     /tmp/ccZe2l6Y.s:204    .text:0000000000000128 .L0 
+     /tmp/ccZe2l6Y.s:206    .text:0000000000000128 .L0 
+     /tmp/ccZe2l6Y.s:207    .text:000000000000012c .L0 
+     /tmp/ccZe2l6Y.s:212    .text:000000000000013c .L0 
+     /tmp/ccZe2l6Y.s:213    .text:000000000000013c .L0 
+     /tmp/ccZe2l6Y.s:214    .text:000000000000013c .L0 
+     /tmp/ccZe2l6Y.s:215    .text:000000000000013c .L0 
+     /tmp/ccZe2l6Y.s:217    .text:0000000000000140 .L0 
+     /tmp/ccZe2l6Y.s:220    .text:0000000000000144 .L0 
+     /tmp/ccZe2l6Y.s:221    .text:0000000000000144 .L0 
+     /tmp/ccZe2l6Y.s:226    .text:000000000000014c .L0 
+     /tmp/ccZe2l6Y.s:227    .text:000000000000014c .L0 
+     /tmp/ccZe2l6Y.s:228    .text:000000000000014c .L0 
+     /tmp/ccZe2l6Y.s:230    .text:0000000000000150 .L0 
+     /tmp/ccZe2l6Y.s:232    .text:0000000000000154 .L0 
+     /tmp/ccZe2l6Y.s:233    .text:0000000000000154 .L0 
+     /tmp/ccZe2l6Y.s:237    .text:0000000000000164 .L0 
+     /tmp/ccZe2l6Y.s:240    .text:000000000000016c .L0 
+     /tmp/ccZe2l6Y.s:243    .text:0000000000000178 .L0 
+     /tmp/ccZe2l6Y.s:247    .text:0000000000000184 .L0 
+     /tmp/ccZe2l6Y.s:251    .text:000000000000018c .L0 
+     /tmp/ccZe2l6Y.s:252    .text:0000000000000190 .L0 
+     /tmp/ccZe2l6Y.s:254    .text:0000000000000194 .L0 
+     /tmp/ccZe2l6Y.s:255    .text:0000000000000194 .L0 
+GAS LISTING /tmp/ccZe2l6Y.s 			page 9
+
+
+     /tmp/ccZe2l6Y.s:257    .text:0000000000000198 .L0 
+     /tmp/ccZe2l6Y.s:260    .text:000000000000019c .L0 
+     /tmp/ccZe2l6Y.s:262    .text:00000000000001a0 .L0 
+     /tmp/ccZe2l6Y.s:264    .text:00000000000001a4 .L0 
+     /tmp/ccZe2l6Y.s:274    .text:00000000000001a4 .L0 
+     /tmp/ccZe2l6Y.s:233    .text:0000000000000154 .L0 
+     /tmp/ccZe2l6Y.s:240    .text:000000000000016c .L0 
+     /tmp/ccZe2l6Y.s:84     .text:0000000000000074 .L9
+     /tmp/ccZe2l6Y.s:187    .text:0000000000000118 .L13
+     /tmp/ccZe2l6Y.s:153    .text:00000000000000e0 .L11
+     /tmp/ccZe2l6Y.s:249    .text:000000000000018c .L14
+     /tmp/ccZe2l6Y.s:224    .text:000000000000014c .L16
+     /tmp/ccZe2l6Y.s:1241   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+     /tmp/ccZe2l6Y.s:2323   .debug_str:000000000000057f .LASF101
+     /tmp/ccZe2l6Y.s:2245   .debug_str:0000000000000317 .LASF102
+     /tmp/ccZe2l6Y.s:2161   .debug_str:00000000000000b7 .LASF103
+     /tmp/ccZe2l6Y.s:5      .text:0000000000000000 .Ltext0
+     /tmp/ccZe2l6Y.s:267    .text:00000000000001a4 .Letext0
+     /tmp/ccZe2l6Y.s:2133   .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/ccZe2l6Y.s:2259   .debug_str:000000000000037c .LASF0
+     /tmp/ccZe2l6Y.s:2281   .debug_str:0000000000000448 .LASF1
+     /tmp/ccZe2l6Y.s:2249   .debug_str:0000000000000330 .LASF2
+     /tmp/ccZe2l6Y.s:2225   .debug_str:000000000000026c .LASF4
+     /tmp/ccZe2l6Y.s:2309   .debug_str:0000000000000515 .LASF3
+     /tmp/ccZe2l6Y.s:2159   .debug_str:00000000000000b0 .LASF5
+     /tmp/ccZe2l6Y.s:2283   .debug_str:000000000000045b .LASF6
+     /tmp/ccZe2l6Y.s:2257   .debug_str:0000000000000369 .LASF7
+     /tmp/ccZe2l6Y.s:2335   .debug_str:00000000000006aa .LASF8
+     /tmp/ccZe2l6Y.s:2211   .debug_str:000000000000021e .LASF9
+     /tmp/ccZe2l6Y.s:2293   .debug_str:00000000000004a8 .LASF10
+     /tmp/ccZe2l6Y.s:2325   .debug_str:0000000000000643 .LASF11
+     /tmp/ccZe2l6Y.s:2237   .debug_str:00000000000002dc .LASF12
+     /tmp/ccZe2l6Y.s:2143   .debug_str:0000000000000056 .LASF13
+     /tmp/ccZe2l6Y.s:2167   .debug_str:00000000000000f7 .LASF14
+     /tmp/ccZe2l6Y.s:2305   .debug_str:00000000000004ea .LASF15
+     /tmp/ccZe2l6Y.s:2181   .debug_str:0000000000000152 .LASF16
+     /tmp/ccZe2l6Y.s:2179   .debug_str:0000000000000141 .LASF19
+     /tmp/ccZe2l6Y.s:2339   .debug_str:00000000000006d6 .LASF26
+     /tmp/ccZe2l6Y.s:2341   .debug_str:00000000000006e7 .LASF17
+     /tmp/ccZe2l6Y.s:2319   .debug_str:0000000000000562 .LASF18
+     /tmp/ccZe2l6Y.s:2177   .debug_str:0000000000000138 .LASF41
+     /tmp/ccZe2l6Y.s:2149   .debug_str:000000000000007c .LASF61
+     /tmp/ccZe2l6Y.s:2235   .debug_str:00000000000002a8 .LASF63
+     /tmp/ccZe2l6Y.s:2227   .debug_str:0000000000000273 .LASF20
+     /tmp/ccZe2l6Y.s:2337   .debug_str:00000000000006ba .LASF21
+     /tmp/ccZe2l6Y.s:2253   .debug_str:000000000000034e .LASF22
+     /tmp/ccZe2l6Y.s:2265   .debug_str:000000000000039b .LASF23
+     /tmp/ccZe2l6Y.s:2329   .debug_str:000000000000066e .LASF90
+     /tmp/ccZe2l6Y.s:2275   .debug_str:0000000000000414 .LASF91
+     /tmp/ccZe2l6Y.s:2313   .debug_str:000000000000054b .LASF24
+     /tmp/ccZe2l6Y.s:2273   .debug_str:00000000000003f2 .LASF25
+     /tmp/ccZe2l6Y.s:2297   .debug_str:00000000000004c0 .LASF45
+     /tmp/ccZe2l6Y.s:2271   .debug_str:00000000000003d0 .LASF47
+     /tmp/ccZe2l6Y.s:2241   .debug_str:0000000000000304 .LASF27
+     /tmp/ccZe2l6Y.s:2289   .debug_str:0000000000000487 .LASF28
+     /tmp/ccZe2l6Y.s:2141   .debug_str:0000000000000051 .LASF104
+     /tmp/ccZe2l6Y.s:2315   .debug_str:0000000000000555 .LASF29
+GAS LISTING /tmp/ccZe2l6Y.s 			page 10
+
+
+     /tmp/ccZe2l6Y.s:2345   .debug_str:0000000000000718 .LASF30
+     /tmp/ccZe2l6Y.s:2269   .debug_str:00000000000003c7 .LASF31
+     /tmp/ccZe2l6Y.s:2261   .debug_str:0000000000000389 .LASF32
+     /tmp/ccZe2l6Y.s:2163   .debug_str:00000000000000d7 .LASF33
+     /tmp/ccZe2l6Y.s:2279   .debug_str:0000000000000442 .LASF34
+     /tmp/ccZe2l6Y.s:2153   .debug_str:000000000000008b .LASF35
+     /tmp/ccZe2l6Y.s:2317   .debug_str:000000000000055a .LASF36
+     /tmp/ccZe2l6Y.s:2243   .debug_str:0000000000000309 .LASF37
+     /tmp/ccZe2l6Y.s:2217   .debug_str:0000000000000241 .LASF39
+     /tmp/ccZe2l6Y.s:2263   .debug_str:0000000000000392 .LASF38
+     /tmp/ccZe2l6Y.s:2201   .debug_str:00000000000001df .LASF40
+     /tmp/ccZe2l6Y.s:2165   .debug_str:00000000000000e6 .LASF105
+     /tmp/ccZe2l6Y.s:2343   .debug_str:00000000000006ec .LASF106
+     /tmp/ccZe2l6Y.s:2137   .debug_str:000000000000001e .LASF42
+     /tmp/ccZe2l6Y.s:2145   .debug_str:0000000000000066 .LASF43
+     /tmp/ccZe2l6Y.s:2349   .debug_str:000000000000072c .LASF44
+     /tmp/ccZe2l6Y.s:2205   .debug_str:00000000000001f7 .LASF46
+     /tmp/ccZe2l6Y.s:2155   .debug_str:0000000000000094 .LASF48
+     /tmp/ccZe2l6Y.s:2267   .debug_str:00000000000003b7 .LASF49
+     /tmp/ccZe2l6Y.s:2331   .debug_str:000000000000067e .LASF50
+     /tmp/ccZe2l6Y.s:2233   .debug_str:000000000000029d .LASF51
+     /tmp/ccZe2l6Y.s:2321   .debug_str:0000000000000568 .LASF52
+     /tmp/ccZe2l6Y.s:2171   .debug_str:0000000000000109 .LASF53
+     /tmp/ccZe2l6Y.s:2173   .debug_str:0000000000000115 .LASF54
+     /tmp/ccZe2l6Y.s:2213   .debug_str:000000000000022c .LASF55
+     /tmp/ccZe2l6Y.s:2307   .debug_str:0000000000000500 .LASF56
+     /tmp/ccZe2l6Y.s:2215   .debug_str:0000000000000236 .LASF57
+     /tmp/ccZe2l6Y.s:2209   .debug_str:0000000000000208 .LASF58
+     /tmp/ccZe2l6Y.s:2185   .debug_str:000000000000017b .LASF59
+     /tmp/ccZe2l6Y.s:2135   .debug_str:0000000000000000 .LASF60
+     /tmp/ccZe2l6Y.s:2191   .debug_str:00000000000001b3 .LASF62
+     /tmp/ccZe2l6Y.s:2255   .debug_str:0000000000000358 .LASF64
+     /tmp/ccZe2l6Y.s:2199   .debug_str:00000000000001d7 .LASF107
+     /tmp/ccZe2l6Y.s:2195   .debug_str:00000000000001cd .LASF65
+     /tmp/ccZe2l6Y.s:2303   .debug_str:00000000000004de .LASF66
+     /tmp/ccZe2l6Y.s:2189   .debug_str:00000000000001aa .LASF67
+     /tmp/ccZe2l6Y.s:2287   .debug_str:0000000000000474 .LASF68
+     /tmp/ccZe2l6Y.s:2203   .debug_str:00000000000001f2 .LASF69
+     /tmp/ccZe2l6Y.s:2231   .debug_str:0000000000000294 .LASF70
+     /tmp/ccZe2l6Y.s:2221   .debug_str:000000000000025f .LASF71
+     /tmp/ccZe2l6Y.s:2151   .debug_str:0000000000000082 .LASF72
+     /tmp/ccZe2l6Y.s:2157   .debug_str:00000000000000a7 .LASF73
+     /tmp/ccZe2l6Y.s:2147   .debug_str:000000000000006e .LASF74
+     /tmp/ccZe2l6Y.s:2187   .debug_str:000000000000018d .LASF75
+     /tmp/ccZe2l6Y.s:2347   .debug_str:000000000000071d .LASF76
+     /tmp/ccZe2l6Y.s:2139   .debug_str:0000000000000031 .LASF77
+     /tmp/ccZe2l6Y.s:2333   .debug_str:00000000000006a3 .LASF78
+     /tmp/ccZe2l6Y.s:2193   .debug_str:00000000000001b8 .LASF79
+     /tmp/ccZe2l6Y.s:2247   .debug_str:000000000000032b .LASF80
+     /tmp/ccZe2l6Y.s:2183   .debug_str:0000000000000168 .LASF81
+     /tmp/ccZe2l6Y.s:2219   .debug_str:000000000000025a .LASF82
+     /tmp/ccZe2l6Y.s:2251   .debug_str:000000000000033e .LASF83
+     /tmp/ccZe2l6Y.s:2175   .debug_str:000000000000012c .LASF84
+     /tmp/ccZe2l6Y.s:2207   .debug_str:0000000000000200 .LASF85
+     /tmp/ccZe2l6Y.s:2277   .debug_str:000000000000043d .LASF86
+     /tmp/ccZe2l6Y.s:2229   .debug_str:000000000000028d .LASF87
+     /tmp/ccZe2l6Y.s:2169   .debug_str:0000000000000103 .LASF88
+GAS LISTING /tmp/ccZe2l6Y.s 			page 11
+
+
+     /tmp/ccZe2l6Y.s:2301   .debug_str:00000000000004ce .LASF89
+     /tmp/ccZe2l6Y.s:2311   .debug_str:0000000000000527 .LASF92
+     /tmp/ccZe2l6Y.s:2223   .debug_str:0000000000000267 .LASF93
+     /tmp/ccZe2l6Y.s:2291   .debug_str:0000000000000490 .LASF94
+     /tmp/ccZe2l6Y.s:2197   .debug_str:00000000000001d2 .LASF95
+     /tmp/ccZe2l6Y.s:2239   .debug_str:00000000000002ec .LASF96
+     /tmp/ccZe2l6Y.s:2295   .debug_str:00000000000004b7 .LASF97
+     /tmp/ccZe2l6Y.s:2327   .debug_str:0000000000000652 .LASF98
+     /tmp/ccZe2l6Y.s:202    .text:0000000000000128 .LFB23
+     /tmp/ccZe2l6Y.s:265    .text:00000000000001a4 .LFE23
+     /tmp/ccZe2l6Y.s:2299   .debug_str:00000000000004c9 .LASF99
+     /tmp/ccZe2l6Y.s:2034   .debug_loc:0000000000000000 .LLST5
+     /tmp/ccZe2l6Y.s:245    .text:0000000000000184 .LVL16
+     /tmp/ccZe2l6Y.s:132    .text:00000000000000c0 .LFB22
+     /tmp/ccZe2l6Y.s:196    .text:0000000000000128 .LFE22
+     /tmp/ccZe2l6Y.s:2052   .debug_loc:000000000000004c .LLST3
+     /tmp/ccZe2l6Y.s:2074   .debug_loc:00000000000000ab .LLST4
+     /tmp/ccZe2l6Y.s:193    .text:0000000000000124 .LVL13
+     /tmp/ccZe2l6Y.s:73     .text:0000000000000064 .LFB21
+     /tmp/ccZe2l6Y.s:126    .text:00000000000000c0 .LFE21
+     /tmp/ccZe2l6Y.s:2081   .debug_loc:00000000000000ce .LLST1
+     /tmp/ccZe2l6Y.s:2095   .debug_loc:0000000000000107 .LLST2
+     /tmp/ccZe2l6Y.s:115    .text:00000000000000b0 .LVL7
+     /tmp/ccZe2l6Y.s:10     .text:0000000000000000 .LFB20
+     /tmp/ccZe2l6Y.s:67     .text:0000000000000064 .LFE20
+     /tmp/ccZe2l6Y.s:2285   .debug_str:000000000000046e .LASF100
+     /tmp/ccZe2l6Y.s:2109   .debug_loc:0000000000000140 .LLST0
+     /tmp/ccZe2l6Y.s:27     .text:000000000000001c .LVL0
+     /tmp/ccZe2l6Y.s:30     .text:0000000000000028 .LVL1
+     /tmp/ccZe2l6Y.s:46     .text:0000000000000044 .LVL3
+     /tmp/ccZe2l6Y.s:205    .text:0000000000000128 .LVL14
+     /tmp/ccZe2l6Y.s:223    .text:000000000000014c .LVL15
+     /tmp/ccZe2l6Y.s:258    .text:0000000000000198 .LVL17
+     /tmp/ccZe2l6Y.s:135    .text:00000000000000c0 .LVL8
+     /tmp/ccZe2l6Y.s:152    .text:00000000000000e0 .LVL9
+     /tmp/ccZe2l6Y.s:182    .text:0000000000000110 .LVL11
+     /tmp/ccZe2l6Y.s:186    .text:0000000000000118 .LVL12
+     /tmp/ccZe2l6Y.s:162    .text:00000000000000f0 .LVL10
+     /tmp/ccZe2l6Y.s:76     .text:0000000000000064 .LVL5
+     /tmp/ccZe2l6Y.s:113    .text:00000000000000a8 .LVL6
+     /tmp/ccZe2l6Y.s:32     .text:000000000000002c .LVL2
+     /tmp/ccZe2l6Y.s:62     .text:000000000000005c .LVL4
+     /tmp/ccZe2l6Y.s:275    .debug_info:0000000000000000 .Ldebug_info0
+
+UNDEFINED SYMBOLS
+_ZN16AlokatorMemorije15dohvatiInstancuEv
+_ZN16AlokatorMemorije9mem_allocEm
+_ZN7Semafor13OtvoriSemaforEj
+_ZN7Semafor6SignalEv
+_ZN7Semafor4WaitEv
+CONSOLE_STATUS
+CONSOLE_TX_DATA
